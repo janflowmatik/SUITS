@@ -743,7 +743,7 @@
 <nav>
   <div class="nav-top">
     <a class="nav-logo" href="#home">
-      <img src="SUITS_Logo_positiv_quer.png" alt="SUITS modern menswear" class="nav-logo-img" />
+      <img src="SUITS_quer_negativ.png" alt="SUITS modern menswear" class="nav-logo-img" />
     </a>
   </div>
   <div class="tab-bar" role="navigation">
@@ -1233,27 +1233,30 @@
 
   /* ─── ACTIVE NAV ─── */
   (function() {
-    const sections = Array.from(document.querySelectorAll('section[id]'));
     const tabBtns = document.querySelectorAll('.tab-btn');
+    const sections = document.querySelectorAll('section[id]');
 
-    function updateActive() {
-      const mid = window.innerHeight / 3;
-      let current = sections[0].id;
-      for (const s of sections) {
-        const rect = s.getBoundingClientRect();
-        if (rect.top <= mid) current = s.id;
-      }
+    function setActive(id) {
       tabBtns.forEach(b => {
-        const isActive = b.getAttribute('href') === '#' + current;
-        b.classList.toggle('active', isActive);
+        b.classList.toggle('active', b.getAttribute('href') === '#' + id);
       });
     }
 
-    window.addEventListener('scroll', updateActive, { passive: true });
-    window.addEventListener('resize', updateActive, { passive: true });
-    // Run on load and after fonts/images settle
-    updateActive();
-    window.addEventListener('load', updateActive);
+    // Set first section active by default
+    if (sections.length) setActive(sections[0].id);
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    }, {
+      rootMargin: '-40% 0px -55% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(s => observer.observe(s));
   })();
 
   /* ─── SCROLL REVEAL ─── */
