@@ -1234,33 +1234,14 @@
     }
   });
 
-  /* ─── ACTIVE NAV (DEBUG) ─── */
+  /* ─── ACTIVE NAV ─── */
   (function () {
     var tabBtns  = Array.from(document.querySelectorAll('.tab-btn'));
     var sections = Array.from(document.querySelectorAll('section[id]'));
     var tabBar   = document.querySelector('.tab-bar');
+    var scroller = document.body; // body is the scroll container (overflow-x:hidden causes this)
     var current  = '';
     var raf      = null;
-    var scrollCount = 0;
-    var touchCount  = 0;
-
-    /* Debug overlay */
-    var dbg = document.createElement('div');
-    dbg.style.cssText = 'position:fixed;bottom:10px;right:10px;z-index:9999;background:rgba(0,0,0,0.85);color:#c9a84c;font:12px monospace;padding:10px 14px;border-radius:8px;border:1px solid #c9a84c;max-width:220px;line-height:1.6;pointer-events:none;';
-    document.body.appendChild(dbg);
-
-    function updateDbg(active) {
-      dbg.innerHTML =
-        '🔍 DEBUG NAV<br>' +
-        'sections: ' + sections.length + '<br>' +
-        'tabBtns: ' + tabBtns.length + '<br>' +
-        'tabBar: ' + (tabBar ? '✓' : '✗') + '<br>' +
-        'scroll events: ' + scrollCount + '<br>' +
-        'touch events: ' + touchCount + '<br>' +
-        'active: <b>' + (active || '—') + '</b><br>' +
-        'scrollY: ' + Math.round(window.pageYOffset) + '<br>' +
-        'vh: ' + window.innerHeight;
-    }
 
     function centerTab(btn) {
       if (!tabBar) return;
@@ -1276,18 +1257,16 @@
         b.classList.toggle('active', active);
         if (active) centerTab(b);
       });
-      updateDbg(id);
     }
 
     function pick() {
-      var scrollY = window.pageYOffset;
+      var scrollY = scroller.scrollTop || window.pageYOffset;
       var vh      = window.innerHeight;
-      var pageH   = document.documentElement.scrollHeight;
+      var pageH   = scroller.scrollHeight || document.documentElement.scrollHeight;
       var trigger = vh * 0.30;
 
       if (scrollY + vh >= pageH - 80) {
         setActive(sections[sections.length - 1].id);
-        updateDbg(current);
         return;
       }
 
@@ -1297,7 +1276,6 @@
         if (top <= trigger) chosen = sections[i].id;
       }
       setActive(chosen);
-      updateDbg(current);
     }
 
     function schedule() {
@@ -1305,21 +1283,14 @@
       raf = requestAnimationFrame(function () { raf = null; pick(); });
     }
 
-    window.addEventListener('scroll', function() {
-      scrollCount++;
-      schedule();
-    }, { passive: true });
-
-    window.addEventListener('touchmove', function() {
-      touchCount++;
-      schedule();
-    }, { passive: true });
-
+    // Listen on BOTH window and body to cover all browsers
+    window.addEventListener('scroll',     schedule, { passive: true });
+    scroller.addEventListener('scroll',   schedule, { passive: true });
+    window.addEventListener('touchmove',  schedule, { passive: true });
     window.addEventListener('touchend', function () {
       setTimeout(pick, 120);
     }, { passive: true });
 
-    updateDbg(null);
     pick();
   })();
 
