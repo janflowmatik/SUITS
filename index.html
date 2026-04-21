@@ -1,1556 +1,1981 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SUITS – modern menswear | Kiel & Lübeck</title>
-  <meta name="description" content="SUITS modern menswear – Dein Herrenausstatter in Kiel und Lübeck. Anzüge, Smokings, Businesshemden, Chinos, Schuhe, Gürtel und mehr in höchster Qualität." />
-  <meta name="keywords" content="Herrenausstatter Kiel, Anzüge Lübeck, Herrenmode Norddeutschland, Smokings, Businesshemden, SUITS menswear, CITTI-PARK" />
-  <meta name="robots" content="index, follow" />
-  <link rel="icon" type="image/png" href="Hut.png" />
-  <link rel="apple-touch-icon" href="Hut.png" />
-  <meta property="og:title" content="SUITS – modern menswear | Kiel & Lübeck" />
-  <meta property="og:description" content="Männlich. Markant. Mutig. Dein Herrenausstatter im Norden." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.suits-menswear.com/" />
-  <meta property="og:locale" content="de_DE" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SUITS modern menswear – Dein Herrenausstatter in Kiel und Lübeck. Anzüge, Hemden, Accessoires und das exklusive Gentlemen's Time Erlebnis.">
+  <title>SUITS – modern menswear</title>
 
-  <script type="application/ld+json">
-  [
-    {
-      "@context": "https://schema.org",
-      "@type": "ClothingStore",
-      "name": "SUITS modern menswear",
-      "description": "Herrenausstatter mit Anzügen, Smokings, Businesshemden, Chinos, Schuhen, Gürteln und mehr.",
-      "url": "https://www.suits-menswear.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Mühlendamm 1",
-        "addressLocality": "Kiel",
-        "postalCode": "24113",
-        "addressRegion": "Schleswig-Holstein",
-        "addressCountry": "DE"
-      },
-      "telephone": "+49431666796 00",
-      "email": "moin@suits-menswear.de"
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "ClothingStore",
-      "name": "SUITS modern menswear",
-      "description": "Herrenausstatter mit Anzügen, Smokings, Businesshemden, Chinos, Schuhen, Gürteln und mehr.",
-      "url": "https://www.suits-menswear.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Herrenholz 14",
-        "addressLocality": "Lübeck",
-        "postalCode": "23556",
-        "addressRegion": "Schleswig-Holstein",
-        "addressCountry": "DE"
-      },
-      "telephone": "+4945181308777",
-      "email": "moinluebeck@suits-menswear.de"
+  <!-- BundaySans Custom Font (liegt in assets/fonts/) -->
+  <style>
+    @font-face {
+      font-family: 'BundaySans';
+      src: url('assets/fonts/Buntype_-_BundaySans-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
     }
-  ]
-  </script>
+    @font-face {
+      font-family: 'BundaySans';
+      src: url('assets/fonts/Buntype_-_BundaySans-SemiLightUpIt.otf') format('opentype');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'BundaySans';
+      src: url('assets/fonts/Buntype_-_BundaySans-ThinIt.otf') format('opentype');
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+    }
+  </style>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Fallback / Body font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
 
   <style>
+    /* ─── VARIABLEN ─────────────────────────────────────────── */
     :root {
-      --black:       #0a0a0a;
-      --black-rich:  #111111;
-      --black-soft:  #1a1a1a;
-      --black-card:  #161616;
-      --gold:        #c9a84c;
-      --gold-light:  #e0c270;
-      --gold-dim:    #8a6e30;
-      --gold-subtle: rgba(201,168,76,0.12);
-      --white:       #ffffff;
-      --white-dim:   rgba(255,255,255,0.75);
-      --white-faint: rgba(255,255,255,0.12);
-      --border:      rgba(201,168,76,0.2);
-      --border-soft: rgba(255,255,255,0.07);
-      --nav-h:       110px;
+      --black:       #0c0b09;
+      --surface:     #141210;
+      --surface-2:   #1c1a16;
+      --gold:        #c9a042;
+      --gold-light:  #e8c06a;
+      --gold-dim:    rgba(201, 160, 66, 0.10);
+      --white:       #f5f0e8;
+      --muted:       #7a756d;
+      --border:      rgba(201, 160, 66, 0.22);
+
+      --font-display: 'BundaySans', 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+      --max-w:        1180px;
+      --pad-section:  72px;
     }
 
+    /* ─── RESET ─────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
     body {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 300;
       background: var(--black);
       color: var(--white);
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.75;
       overflow-x: hidden;
     }
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; }
 
-    /* League Spartan for UI elements */
-    .nav-logo-text, .nav-logo-sub,
-    .tab-btn,
-    .hero-eyebrow, .hero-tagline,
-    .hero-cta,
-    .section-label,
-    .sortiment-num, .sortiment-name,
-    .standort-city, .standort-since,
-    .kontakt-block-title,
-    .form-label, .form-btn,
-    .gno-ig-link,
-    .footer-logo, .footer-link, .footer-copy,
-    .banner-label,
-    .value-text strong {
-      font-family: 'League Spartan', sans-serif;
+    /* ─── UTILITIES ─────────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 36px;
     }
+    .gold { color: var(--gold); }
 
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--black-rich); }
-    ::-webkit-scrollbar-thumb { background: var(--gold-dim); border-radius: 3px; }
-
-    /* ─── NAVBAR ─── */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(10,10,10,0.97);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-top {
-      display: flex; align-items: center; justify-content: center;
-      padding: 1.2rem 3rem;
-    }
-    .nav-logo {
-      display: flex; align-items: center;
-      text-decoration: none; background: none; border: none; cursor: pointer;
-    }
-    .nav-logo-img {
-      height: 64px; width: auto;
-      object-fit: contain;
-    }
-
-    .tab-bar {
-      display: flex; justify-content: center;
-      border-top: 1px solid var(--border-soft);
-      overflow-x: auto; scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-    }
-    .tab-bar::-webkit-scrollbar { display: none; }
-    .tab-btn {
-      flex-shrink: 0; padding: 0.9rem 1.4rem;
-      background: none; border: none;
-      border-bottom: 2px solid transparent;
-      font-family: 'League Spartan', sans-serif;
-      font-size: 0.7rem; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); cursor: pointer;
-      transition: color 0.35s ease, border-color 0.35s ease, background 0.35s ease;
-      white-space: nowrap; min-height: 48px;
-      text-decoration: none; display: inline-flex; align-items: center;
-    }
-    .tab-btn:hover { color: var(--gold-light); }
-    .tab-btn.active {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-      background: rgba(201,168,76,0.05);
-    }
-
-    section[id] { scroll-margin-top: var(--nav-h); }
-
-    .section-inner {
-      max-width: 1140px; margin: 0 auto;
-      padding: 6rem 2rem;
-    }
-
-    /* ─── SHARED TYPOGRAPHY ─── */
     .section-label {
-      font-size: 0.85rem; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 0.8rem;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10.5px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 22px;
     }
-    .section-title {
-      font-family: 'League Spartan', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 400; color: var(--white);
-      line-height: 1.2; margin-bottom: 1.4rem;
-    }
-    .section-title em { font-style: italic; color: var(--gold-light); }
-    .divider {
-      width: 40px; height: 1px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin-bottom: 2.5rem;
-    }
-    .body-text {
-      font-size: 1rem; line-height: 1.95;
-      color: rgba(255,255,255,0.6); max-width: 580px;
+    .section-label::before {
+      content: '';
+      width: 38px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
     }
 
-    /* ─── HERO ─── */
-    #home {
-      position: relative; overflow: hidden;
-      height: calc(100vh - var(--nav-h));
-      min-height: 520px; max-height: 760px;
-      display: flex; align-items: center; justify-content: center;
-      text-align: center;
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
     }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('hero.jpg');
-      background-size: cover; background-position: center;
-      opacity: 0.28;
-      transform: scale(1.04);
-      animation: heroZoom 12s ease-out forwards;
-    }
-    @keyframes heroZoom {
-      from { transform: scale(1.08); }
-      to   { transform: scale(1.0); }
-    }
-    .hero-grain {
-      position: absolute; inset: 0; pointer-events: none; z-index: 1;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      padding: 20px 0;
+      color: var(--gold);
       opacity: 0.5;
     }
-    #home::after {
+    .divider::before, .divider::after {
       content: '';
-      position: absolute; inset: 0; z-index: 1;
-      background: linear-gradient(160deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.82) 100%);
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
+    .divider span { font-size: 18px; }
+
+    /* ─── BUTTONS ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      padding: 16px 38px;
+      border: none;
+      transition: background 0.2s, transform 0.2s, color 0.2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn svg { transition: transform 0.2s; flex-shrink: 0; }
+    .btn:hover svg { transform: translateX(4px); }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-gold:hover { background: var(--gold-light); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 15px 37px;
+    }
+    .btn-outline:hover { background: var(--gold-dim); }
+
+    /* ─── NAVBAR ────────────────────────────────────────────── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s, backdrop-filter 0.4s;
+    }
+
+    #navbar.is-scrolled {
+      background: rgba(12, 11, 9, 0.96);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+    }
+
+    /* ── Logo-Zeile (nur ganz oben sichtbar) ── */
+    .nav-logo-row {
+      display: flex;
+      justify-content: center;
+      padding: 18px 0 10px;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+      max-height: 80px;
+      opacity: 1;
+    }
+    .nav-logo-row img { height: 42px; width: auto; }
+
+    /* ── Links-Zeile (zentriert) ── */
+    .nav-links-row {
+      display: flex;
+      justify-content: center;
+      overflow: hidden;
+      transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease;
+      max-height: 0;
+      opacity: 0;
+      padding: 0;
+      pointer-events: none;
+    }
+
+    /* Ganz oben: Logo ja, Links nein */
+    /* Gescrollt: Logo nein, Links ja */
+    #navbar.is-scrolled .nav-logo-row {
+      opacity: 0;
+      max-height: 0;
+      padding: 0;
+      pointer-events: none;
+    }
+    #navbar.is-scrolled .nav-links-row {
+      opacity: 1;
+      max-height: 60px;
+      padding: 14px 0;
+      pointer-events: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.65;
+      transition: opacity 0.2s, color 0.2s;
+      position: relative;
+      white-space: nowrap;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px; left: 0; right: 0;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+    .nav-links a:hover        { opacity: 1; color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-links a.active {
+      color: var(--gold);
+      opacity: 1;
+    }
+    .nav-links a.active::after { transform: scaleX(0.5); opacity: 0.6; }
+
+    /* ── Mobile Navbar (kein Hamburger) ── */
+    .nav-mobile {
+      display: none;
+      justify-content: center;
+      gap: 0;
+      list-style: none;
+      padding: 12px 16px;
+    }
+    .nav-mobile li { flex: 1; text-align: center; }
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white);
+      opacity: 0.65;
+      transition: opacity 0.2s, color 0.2s;
+      display: block;
+      padding: 4px 2px;
+      position: relative;
+    }
+    .nav-mobile a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 25%; right: 25%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .nav-mobile a:hover, .nav-mobile a.active {
+      opacity: 1;
+      color: var(--gold);
+    }
+    .nav-mobile a.active::after { transform: scaleX(1); }
+
+    /* Hamburger – nicht mehr verwendet, versteckt */
+    .hamburger { display: none !important; }
+    .mobile-menu { display: none !important; }
+
+    /* ─── HERO ──────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Diagonal line texture */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 50px,
+        rgba(201, 160, 66, 0.025) 50px,
+        rgba(201, 160, 66, 0.025) 51px
+      );
+      pointer-events: none;
+    }
+    /* Vignette */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 45%, rgba(12,11,9,0.65) 100%);
+      pointer-events: none;
+    }
+
     .hero-content {
-      position: relative; z-index: 3; padding: 2rem;
-      animation: fadeUp 1s ease 0.3s both;
+      position: relative;
+      z-index: 1;
+      max-width: 880px;
+      padding: 130px 36px 80px;
     }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+      animation: fadeUp 1s ease 0.1s both;
+    }
+
+    .hero-logo {
+      width: min(280px, 70vw);
+      margin: 0 auto 52px;
+      animation: fadeUp 1s ease 0.2s both;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-body);
+      font-size: clamp(2.6rem, 8vw, 5.8rem);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+      animation: fadeUp 1s ease 0.35s both;
+    }
+    .hero-tagline em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      margin-bottom: 52px;
+      animation: fadeUp 1s ease 0.45s both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s ease 0.55s both;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 44px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      animation: fadeUp 1s ease 0.9s both;
+    }
+    .scroll-cue span {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: var(--font-display);
+      font-weight: 700;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .hero-ornament {
-      display: flex; align-items: center; justify-content: center;
-      gap: 1rem; margin-bottom: 1.8rem;
-    }
-    .hero-ornament-line {
-      width: 60px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
-    }
-    .hero-ornament-line:last-child {
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-    .hero-ornament-diamond {
-      width: 6px; height: 6px;
-      background: var(--gold); transform: rotate(45deg);
-    }
-    .hero-eyebrow {
-      font-size: 0.72rem; letter-spacing: 0.45em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    h1.hero-title {
-      font-family: 'League Spartan', sans-serif;
-      font-size: clamp(3.5rem, 11vw, 7rem);
-      font-weight: 400;
-      color: var(--white); line-height: 1.0;
-      margin-bottom: 1.4rem;
-      letter-spacing: 0.04em;
-    }
-    h1.hero-title span { color: var(--gold-light); font-style: italic; }
-    .hero-tagline {
-      font-size: 0.78rem; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--white-dim);
-      margin-bottom: 3rem;
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 0.3rem;
-    }
-    .hero-tagline-sep { color: var(--gold-dim); margin: 0 0.6rem; }
-    .hero-cta {
-      display: inline-block; padding: 1rem 2.8rem;
-      background: transparent;
-      color: var(--gold);
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      border: 1px solid var(--gold);
-      text-decoration: none;
-      transition: background 0.3s, color 0.3s, transform 0.2s;
-      cursor: pointer;
-    }
-    .hero-cta:hover {
-      background: var(--gold); color: var(--black);
-      transform: translateY(-2px);
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.25; }
+      50%       { opacity: 1; }
     }
 
-    /* ─── INFO BANNER ─── */
-    .info-banner {
-      background: var(--black-soft);
+    /* ─── GENTLEMEN'S TIME ──────────────────────────────────── */
+    #gentlemens-time {
+      padding: var(--pad-section) 0;
+    }
+
+    /* Zweispaltiges Intro: Text links, Bild/Video rechts */
+    .gt-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .gt-intro p {
+      font-size: 1.15rem;
+      color: rgba(245, 240, 232, 0.78);
+      line-height: 1.85;
+    }
+    .gt-intro p + p { margin-top: 18px; }
+    .gt-intro .btn { margin-top: 36px; }
+
+    /* Bild- / Video-Platzhalter */
+    .gt-media {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .gt-media::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 32px,
+        rgba(201,160,66,0.03) 32px, rgba(201,160,66,0.03) 33px
+      );
+    }
+    .gt-media-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px;
+    }
+    .gt-media-icon {
+      font-size: 3rem;
+      opacity: 0.18;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .gt-media-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    /* Wenn ein echtes Bild/Video eingesetzt wird:
+       <img src="assets/images/gt-atmosphaere.jpg" ...>
+       <video src="assets/video/gt-reel.mp4" autoplay muted loop playsinline>
+       → einfach das gt-media-inner ersetzen, aspect-ratio bleibt
+    */
+    .gt-media img,
+    .gt-media video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* Gold-Akzentlinie oben */
+    .gt-media::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .gt-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 52px;
+    }
+    .gt-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 40px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .gt-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .gt-card:hover { transform: translateY(-5px); border-color: rgba(201,160,66,0.45); }
+    .gt-card:hover::before { transform: scaleX(1); }
+
+    .gt-card-icon { font-size: 2.4rem; margin-bottom: 22px; }
+    .gt-card-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .gt-card p {
+      font-size: 1rem;
+      color: rgba(245,240,232,0.68);
+      line-height: 1.72;
+    }
+
+    /* ─── FAQ ───────────────────────────────────────────────── */
+    .faq-heading {
+      margin-top: 56px;
+      margin-bottom: 12px;
+    }
+    .faq-wrap {
       border-top: 1px solid var(--border);
+    }
+
+    .faq-item {
       border-bottom: 1px solid var(--border);
     }
-    .banner-inner {
-      max-width: 1140px; margin: 0 auto;
-      padding: 1.1rem 2rem;
-      display: flex; align-items: center; justify-content: center;
-      gap: 2.5rem; flex-wrap: wrap;
-    }
-    .banner-item {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-size: 0.82rem; color: rgba(255,255,255,0.65);
-      letter-spacing: 0.05em;
-    }
-    .banner-label {
-      font-size: 0.66rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold);
-    }
-    .banner-sep { width: 1px; height: 1.2rem; background: var(--border-soft); }
-    .banner-item a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
-    .banner-item a:hover { color: var(--gold-light); }
 
-    /* ─── SORTIMENT ─── */
-    #sortiment { background: var(--black-rich); }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 22px 0;
+      cursor: pointer;
+      color: var(--white);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-question[aria-expanded="true"] { color: var(--gold); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, transform 0.35s;
+      color: var(--gold);
+    }
+    .faq-question[aria-expanded="true"] .faq-icon {
+      border-color: var(--gold);
+      transform: rotate(45deg);
+    }
+    .faq-icon svg { width: 10px; height: 10px; }
+
+    .faq-answer {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+    .faq-answer.open {
+      max-height: 300px; /* großzügig, passt für alle Antworten */
+    }
+    .faq-answer-inner {
+      padding: 0 0 22px;
+      font-size: 1.05rem;
+      color: rgba(245, 240, 232, 0.72);
+      line-height: 1.8;
+      max-width: 760px;
+    }
+
+    /* ─── SORTIMENT ─────────────────────────────────────────── */
+    #sortiment {
+      padding: var(--pad-section) 0;
+      background: var(--surface);
+    }
+
     .sortiment-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      margin-top: 3.5rem;
-      border: 1px solid var(--border-soft);
-    }
-    .sortiment-card {
-      background: var(--black-card);
-      padding: 2.5rem 2rem;
-      position: relative; overflow: hidden;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .sortiment-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 2px; height: 0;
-      background: var(--gold);
-      transition: height 0.4s ease;
-    }
-    .sortiment-card:hover { background: rgba(201,168,76,0.04); }
-    .sortiment-card:hover::before { height: 100%; }
-    .sortiment-num {
-      font-size: 0.62rem; letter-spacing: 0.3em;
-      color: var(--gold-dim); margin-bottom: 1.2rem;
-    }
-    .sortiment-icon {
-      width: 44px; height: 44px; margin-bottom: 1.4rem;
-      opacity: 0.7;
-    }
-    .sortiment-name {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 1.2rem; font-weight: 400;
-      color: var(--white); margin-bottom: 0.6rem;
-    }
-    .sortiment-desc {
-      font-size: 0.85rem; line-height: 1.75;
-      color: rgba(255,255,255,0.45);
+      gap: 18px;
     }
 
-    /* ─── SORTIMENT GALERIE MODAL ─── */
-    .galerie-overlay {
-      display: none; position: fixed; inset: 0; z-index: 300;
-      background: rgba(0,0,0,0.92); backdrop-filter: blur(8px);
-      align-items: center; justify-content: center; padding: 1.5rem;
-    }
-    .galerie-overlay.open { display: flex; }
-    .galerie-box {
-      background: var(--black-card);
+    .sort-card {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      background: var(--surface-2);
       border: 1px solid var(--border);
-      width: 100%; max-width: 700px;
-      max-height: 90vh; overflow-y: auto;
-      position: relative; padding: 2.5rem 2rem 2rem;
+      cursor: pointer;
     }
-    .galerie-close {
-      position: absolute; top: 1rem; right: 1rem;
-      background: none; border: none; color: var(--white-dim);
-      font-size: 1.2rem; cursor: pointer; line-height: 1;
-      transition: color 0.2s;
-    }
-    .galerie-close:hover { color: var(--gold); }
-    .galerie-title {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 1.3rem; font-weight: 400;
-      color: var(--white); margin-bottom: 0.4rem;
-    }
-    .galerie-divider {
-      width: 30px; height: 1px;
-      background: linear-gradient(90deg, var(--gold), transparent);
-      margin-bottom: 1.8rem;
-    }
-    .galerie-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-    .galerie-img-wrap {
-      aspect-ratio: 1;
-      background: var(--black-soft);
-      border: 1px solid var(--border-soft);
-      overflow: hidden; position: relative;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .galerie-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      display: none;
-    }
-    .galerie-img-wrap img.loaded { display: block; }
-    .galerie-placeholder {
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.5rem; color: rgba(255,255,255,0.2);
-      font-size: 0.7rem; letter-spacing: 0.1em;
-      text-align: center; padding: 1rem;
-      position: absolute; inset: 0;
-    }
-    .galerie-placeholder svg { width: 32px; height: 32px; opacity: 0.4; }
-    .sortiment-card-arrow {
-      position: absolute; bottom: 1.2rem; right: 1.2rem;
-      color: var(--gold-dim); opacity: 0;
-      transition: opacity 0.3s;
-      font-size: 0.75rem; letter-spacing: 0.1em;
-      font-family: 'League Spartan', sans-serif;
-    }
-    .sortiment-card:hover .sortiment-card-arrow { opacity: 1; }
-
-    /* ─── ÜBER UNS ─── */
-    #ueber {
-      background: var(--black);
+    .sort-card-img {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(140deg, var(--surface-2) 0%, #181510 100%);
+      transition: transform 0.55s ease;
       position: relative;
     }
-    .ueber-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center;
-    }
-    .ueber-img-wrap {
-      position: relative; aspect-ratio: 3/4; overflow: hidden;
-    }
-    .ueber-img-wrap img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: grayscale(20%);
-      transition: transform 0.6s ease;
-    }
-    .ueber-img-wrap:hover img { transform: scale(1.03); }
-    .ueber-img-frame {
-      position: absolute; inset: 0;
-      border: 1px solid var(--border);
-      pointer-events: none;
-      transform: translate(12px, 12px);
-    }
-    .ueber-img-placeholder {
-      width: 100%; height: 100%;
-      background: var(--black-card);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .ueber-img-placeholder svg { width: 64px; height: 64px; opacity: 0.15; }
-    .values-list { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.2rem; }
-    .value-item { display: flex; gap: 1rem; align-items: flex-start; }
-    .value-dot {
-      width: 6px; height: 6px; background: var(--gold);
-      transform: rotate(45deg); margin-top: 0.5rem; flex-shrink: 0;
-    }
-    .value-text { font-size: 0.92rem; color: rgba(255,255,255,0.6); line-height: 1.7; }
-    .value-text strong { color: var(--white); font-weight: 500; display: block; margin-bottom: 0.2rem; }
-
-    /* ─── STANDORTE ─── */
-    #standorte { background: var(--black-rich); }
-    .standorte-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px; margin-top: 3.5rem;
-    }
-    .standort-card {
-      background: var(--black-card);
-      padding: 3rem;
-      position: relative; overflow: hidden;
-    }
-    .standort-card::after {
+    .sort-card-img::after {
       content: '';
-      position: absolute; bottom: 0; left: 0; right: 0;
-      height: 1px; background: linear-gradient(90deg, var(--gold), transparent);
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 24px,
+        rgba(201,160,66,0.025) 24px, rgba(201,160,66,0.025) 25px
+      );
     }
-    .standort-city {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 2.4rem; font-weight: 400;
-      color: var(--white); margin-bottom: 0.3rem;
+    .sort-card:hover .sort-card-img { transform: scale(1.05); }
+    .sort-placeholder-icon {
+      font-size: 3.2rem;
+      opacity: 0.12;
+      position: relative;
+      z-index: 1;
     }
-    .standort-since {
-      font-size: 0.68rem; letter-spacing: 0.3em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.8rem;
+
+    .sort-card-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(10,9,7,0.96) 55%);
+      padding: 48px 24px 28px;
     }
-    .standort-map {
-      width: 100%; height: 200px;
-      background: var(--black-soft);
-      margin-bottom: 1.8rem;
-      overflow: hidden; position: relative;
-      border: 1px solid var(--border-soft);
-    }
-    .standort-map iframe {
-      width: 100%; height: 100%; border: 0;
-      filter: grayscale(80%) invert(90%) contrast(90%);
-    }
-    .standort-map-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,0.2); font-size: 0.8rem; letter-spacing: 0.15em;
+    /* "Galerie ansehen" hint on hover */
+    .sort-card-overlay::after {
+      content: 'Galerie ansehen →';
+      display: block;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
     }
-    .standort-info { display: flex; flex-direction: column; gap: 0.9rem; }
-    .standort-row {
-      display: flex; gap: 1rem; align-items: flex-start;
-      font-size: 0.88rem; color: rgba(255,255,255,0.55);
+    .sort-card:hover .sort-card-overlay::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .sort-card-label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .sort-card-name {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.25;
+    }
+
+    /* If real images are added later */
+    .sort-card > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .sort-card > img.loaded { opacity: 1; }
+
+    /* ─── GALERIE MODAL ─────────────────────────────────────── */
+    #gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    #gallery-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .gallery-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 7, 5, 0.93);
+      backdrop-filter: blur(10px);
+    }
+    .gallery-box {
+      position: relative;
+      z-index: 1;
+      width: min(820px, 92vw);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      max-height: 90vh;
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    #gallery-modal.open .gallery-box { transform: translateY(0); }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .gallery-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .gallery-counter {
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+    }
+    .gallery-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--white);
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .gallery-close:hover { border-color: var(--gold); color: var(--gold); }
+    .gallery-close svg { width: 13px; height: 13px; }
+
+    .gallery-stage {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: var(--surface-2);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .gallery-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .gallery-img.active { opacity: 1; }
+
+    .gallery-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-align: center;
+      padding: 24px;
+    }
+    .gallery-ph-icon { font-size: 2.6rem; opacity: 0.1; }
+    .gallery-ph-label {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .gallery-ph-path {
+      font-size: 0.78rem;
+      color: rgba(122,117,109,0.4);
+      font-style: italic;
+    }
+
+    .gallery-nav {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      background: rgba(12,11,9,0.65);
+      border: 1px solid var(--border);
+      color: var(--white);
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      z-index: 2;
+    }
+    .gallery-nav:hover { border-color: var(--gold); color: var(--gold); }
+    .gallery-nav svg { width: 13px; height: 13px; }
+    .gallery-prev { left: 14px; }
+    .gallery-next { right: 14px; }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 8px;
+      padding: 14px 24px;
+      overflow-x: auto;
+      flex-shrink: 0;
+      scrollbar-width: none;
+      border-top: 1px solid var(--border);
+    }
+    .gallery-thumbs::-webkit-scrollbar { display: none; }
+    .gallery-thumb {
+      flex-shrink: 0;
+      width: 58px; height: 58px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .gallery-thumb.active { border-color: var(--gold); }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-thumb-ph { font-size: 1.2rem; opacity: 0.12; }
+
+    /* ─── STANDORTE ─────────────────────────────────────────── */
+    #standorte { padding: var(--pad-section) 0; }
+    .stores-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+    .store-card {
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: var(--surface);
+    }
+    .store-map {
+      width: 100%;
+      height: 230px;
+      border: none;
+      display: block;
+    }
+    .store-info { padding: 32px; }
+    .store-city {
+      font-size: 10px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: var(--font-display);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .store-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+    .store-detail {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 0.98rem;
+      color: rgba(245,240,232,0.72);
       line-height: 1.6;
     }
-    .standort-row-label {
-      font-size: 0.65rem; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--gold-dim);
-      min-width: 80px; padding-top: 2px;
+    .store-icon { color: var(--gold); flex-shrink: 0; }
+    .store-note {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-style: italic;
     }
-    .standort-row a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
-    .standort-row a:hover { color: var(--gold-light); }
-    .zeiten-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem 1rem; }
-    .zeiten-mini-row { display: contents; }
-    .zeiten-mini span { font-size: 0.84rem; color: rgba(255,255,255,0.5); }
-    .zeiten-mini span:first-child { color: rgba(255,255,255,0.35); font-size: 0.78rem; }
 
-    /* ─── KONTAKT ─── */
-    #kontakt { background: var(--black); }
-    .kontakt-layout {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    /* ─── KONTAKT ───────────────────────────────────────────── */
+    #kontakt {
+      padding: var(--pad-section) 0;
+      background: var(--surface);
+    }
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.65fr;
+      gap: 80px;
       align-items: start;
     }
-    .kontakt-form { display: flex; flex-direction: column; gap: 1.4rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-    .form-label {
-      font-size: 0.68rem; letter-spacing: 0.25em;
-      text-transform: uppercase; color: var(--gold-dim);
+    .kontakt-left p {
+      font-size: 1.12rem;
+      color: rgba(245,240,232,0.72);
+      line-height: 1.85;
+      margin-bottom: 32px;
     }
-    .form-input, .form-textarea, .form-select {
-      background: var(--black-soft);
-      border: 1px solid var(--border-soft);
-      color: var(--white); padding: 0.9rem 1rem;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.9rem; font-weight: 300;
-      transition: border-color 0.25s;
-      outline: none; width: 100%;
-      appearance: none;
-    }
-    .form-input::placeholder,
-    .form-textarea::placeholder { color: rgba(255,255,255,0.2); }
-    .form-input:focus, .form-textarea:focus, .form-select:focus {
-      border-color: var(--gold-dim);
-    }
-    .form-textarea { resize: vertical; min-height: 130px; }
-    .form-select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 1rem center;
-      padding-right: 2.5rem; cursor: pointer;
-    }
-    .form-select option { background: var(--black-card); }
-    .form-btn {
-      display: inline-flex; align-items: center; gap: 0.8rem;
-      padding: 1.1rem 2.8rem;
-      background: transparent; border: 1px solid var(--gold);
-      color: var(--gold); cursor: pointer;
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      transition: background 0.3s, color 0.3s;
-      align-self: flex-start;
-    }
-    .form-btn:hover { background: var(--gold); color: var(--black); }
-    .form-success {
-      display: none; padding: 1rem 1.4rem;
-      background: var(--gold-subtle); border: 1px solid var(--border);
-      font-size: 0.88rem; color: var(--gold-light);
-      letter-spacing: 0.05em;
-    }
-    .kontakt-aside { display: flex; flex-direction: column; gap: 3rem; }
-    .kontakt-block { }
-    .kontakt-block-title {
-      font-size: 0.68rem; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 1.2rem;
-    }
-    .kontakt-links { display: flex; flex-direction: column; gap: 0.7rem; }
-    .kontakt-link {
-      display: flex; align-items: center; gap: 0.8rem;
-      font-size: 0.9rem; color: rgba(255,255,255,0.55);
-      text-decoration: none; transition: color 0.2s;
-    }
-    .kontakt-link:hover { color: var(--gold-light); }
-    .kontakt-link svg { width: 16px; height: 16px; flex-shrink: 0; opacity: 0.6; }
-
-    /* ─── FOOTER ─── */
-    footer {
-      background: var(--black-rich);
-      border-top: 1px solid var(--border);
-      padding: 3rem 2rem;
-    }
-    .footer-inner {
-      max-width: 1140px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 1.5rem;
-    }
-    .footer-logo {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.85rem; font-weight: 600;
-      letter-spacing: 0.3em; text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-    }
-    .footer-logo span { color: var(--gold-dim); }
-    .footer-links { display: flex; gap: 2rem; flex-wrap: wrap; }
-    .footer-link {
-      font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-      color: rgba(255,255,255,0.3); text-decoration: none;
-      cursor: pointer; transition: color 0.2s; background: none; border: none;
-    }
-    .footer-link:hover { color: var(--gold); }
-    .footer-copy {
-      font-size: 0.72rem; color: rgba(255,255,255,0.2);
-      letter-spacing: 0.08em;
-    }
-
-  /* ─── SORTIMENT GALERIE ─── */
-  var galerieData = {
-    anzuege:     { title: 'Anzüge',         files: ['anzuege_1.jpg','anzuege_2.jpg','anzuege_3.jpg','anzuege_4.jpg'] },
-    hemden:      { title: 'Hemden',          files: ['hemden_1.jpg','hemden_2.jpg','hemden_3.jpg','hemden_4.jpg'] },
-    accessoires: { title: 'Accessoires',     files: ['accessoires_1.jpg','accessoires_2.jpg','accessoires_3.jpg','accessoires_4.jpg'] },
-    hosen:       { title: 'Chinos & Jeans',  files: ['hosen_1.jpg','hosen_2.jpg','hosen_3.jpg','hosen_4.jpg'] },
-    schuhe:      { title: 'Schuhe',          files: ['schuhe_1.jpg','schuhe_2.jpg','schuhe_3.jpg','schuhe_4.jpg'] },
-    huete:       { title: 'Hüte & Caps',     files: ['huete_1.jpg','huete_2.jpg','huete_3.jpg','huete_4.jpg'] }
-  };
-
-  function openGalerie(key) {
-    var data = galerieData[key];
-    if (!data) return;
-    document.getElementById('galerie-title').textContent = data.title;
-    var grid = document.getElementById('galerie-grid');
-    grid.innerHTML = '';
-    data.files.forEach(function(file) {
-      var wrap = document.createElement('div');
-      wrap.className = 'galerie-img-wrap';
-      // Placeholder
-      var ph = document.createElement('div');
-      ph.className = 'galerie-placeholder';
-      ph.innerHTML = '<svg viewBox="0 0 44 44" fill="none"><rect x="6" y="10" width="32" height="24" rx="1" stroke="currentColor" stroke-width="1"/><circle cx="15" cy="19" r="3" stroke="currentColor" stroke-width="1"/><path d="M6 28l9-7 7 5 6-7 8 9" stroke="currentColor" stroke-width="1"/></svg><span>' + file + '</span>';
-      wrap.appendChild(ph);
-      // Image
-      var img = document.createElement('img');
-      img.alt = data.title;
-      img.onload = function() { this.classList.add('loaded'); ph.style.display = 'none'; };
-      img.onerror = function() { this.style.display = 'none'; };
-      img.src = file;
-      wrap.appendChild(img);
-      grid.appendChild(wrap);
-    });
-    var overlay = document.getElementById('galerie-overlay');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeGalerie() {
-    document.getElementById('galerie-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  /* ─── MODAL ─── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; z-index: 200;
-      background: rgba(0,0,0,0.75); backdrop-filter: blur(6px);
-      align-items: center; justify-content: center; padding: 2rem;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal-box {
-      background: var(--black-card);
+    .kontakt-note {
+      display: flex;
+      gap: 16px;
+      padding: 22px;
       border: 1px solid var(--border);
-      max-width: 680px; width: 100%; max-height: 85vh; overflow-y: auto;
-      padding: 3rem; position: relative;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+      background: var(--gold-dim);
     }
-    .modal-close {
-      position: absolute; top: 1.4rem; right: 1.4rem;
-      background: none; border: none; cursor: pointer;
-      font-size: 1.1rem; color: rgba(255,255,255,0.35);
-      transition: color 0.2s; line-height: 1;
+    .kontakt-note-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .kontakt-note p {
+      font-size: 0.92rem !important;
+      color: rgba(245,240,232,0.6) !important;
+      margin-bottom: 0 !important;
+      line-height: 1.65 !important;
     }
-    .modal-close:hover { color: var(--gold); }
-    .modal-title {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 1.8rem; font-weight: 400;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .modal-divider {
-      width: 32px; height: 1px;
-      background: var(--gold); margin: 1rem 0 1.8rem;
-    }
-    .modal-content {
-      font-size: 0.9rem; line-height: 1.9;
-      color: rgba(255,255,255,0.55);
-    }
-    .modal-content h3 {
-      font-family: 'League Spartan', sans-serif; font-weight: 400;
-      font-size: 1.1rem; color: var(--white);
-      margin: 1.8rem 0 0.6rem;
-    }
-    .modal-content h3:first-child { margin-top: 0; }
-    .modal-content a { color: var(--gold); text-decoration: none; }
-    .modal-content a:hover { text-decoration: underline; }
-    .modal-content p { margin-bottom: 0.6rem; }
 
-    /* ─── GENTLEMEN'S NIGHT OUT ─── */
-    #gno { background: var(--black); }
-    .gno-layout {
+    /* Form */
+    .form-group { margin-bottom: 20px; }
+    .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-      margin-bottom: 4rem;
+      gap: 20px;
     }
-    .gno-img-wrap {
-      position: relative; aspect-ratio: 3/4; overflow: hidden;
-    }
-    .gno-img {
-      width: 100%; height: 100%; object-fit: cover;
+    label {
       display: block;
-      transition: transform 0.6s ease;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 9px;
     }
-    .gno-img-wrap:hover .gno-img { transform: scale(1.03); }
-    .gno-img-placeholder {
-      width: 100%; height: 100%;
-      background: var(--black-card);
-      border: 1px solid var(--border-soft);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1rem; color: rgba(255,255,255,0.2);
-      font-size: 0.78rem; letter-spacing: 0.1em;
-      text-align: center; line-height: 1.6;
+    label .opt {
+      font-size: 0.8em;
+      letter-spacing: 0;
+      text-transform: none;
+      color: rgba(122,117,109,0.7);
+      margin-left: 4px;
     }
-    .gno-img-placeholder svg { width: 48px; height: 48px; opacity: 0.2; }
-    .gno-img-placeholder span { color: var(--gold-dim); font-size: 0.7rem; letter-spacing: 0.15em; }
-    .gno-img-frame {
-      position: absolute; inset: 0;
+    input, select, textarea {
+      width: 100%;
+      background: var(--surface-2);
       border: 1px solid var(--border);
-      pointer-events: none;
-      transform: translate(12px, 12px);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: 14px 16px;
+      outline: none;
+      transition: border-color 0.22s;
+      -webkit-appearance: none;
+      appearance: none;
     }
-    .gno-text { display: flex; flex-direction: column; gap: 2rem; }
-    .gno-body {
-      font-size: 1rem; line-height: 2;
-      color: rgba(255,255,255,0.55);
-    }
-    .gno-ig-link {
-      display: inline-flex; align-items: center; gap: 0.8rem;
-      font-size: 0.75rem; font-weight: 600;
-      letter-spacing: 0.25em; text-transform: uppercase;
-      color: var(--gold); text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 0.9rem 1.6rem;
-      transition: background 0.3s, border-color 0.3s;
-      align-self: center;
-    }
-    .gno-ig-link:hover { background: var(--gold-subtle); border-color: var(--gold-dim); }
-    .gno-ig-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+    input:focus, select:focus, textarea:focus { border-color: var(--gold); }
+    ::placeholder { color: rgba(122,117,109,0.55); }
 
-    /* VIDEO */
-    /* ─── GNO Q&A ─── */
-    .gno-qa-header {
-      display: flex; align-items: center; gap: 0.9rem;
-      margin-bottom: 2rem;
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a042' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 42px;
+      cursor: pointer;
     }
-    .gno-qa-hut {
-      height: 36px; width: auto;
-      opacity: 0.75;
-      filter: brightness(0) saturate(100%) invert(70%) sepia(40%) saturate(600%) hue-rotate(5deg) brightness(95%);
-    }
-    .gno-qa {
-      margin-top: 4rem;
-      border-top: 1px solid var(--border-soft);
-      padding-top: 3rem;
-    }
-    .gno-qa-title {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 0.85rem; letter-spacing: 0.35em;
-      text-transform: uppercase; color: var(--gold);
-      margin-bottom: 0;
-    }
-    .gno-qa-item {
-      border-bottom: 1px solid var(--border-soft);
-      padding: 1.2rem 0;
-    }
-    .gno-qa-question {
-      font-family: 'League Spartan', sans-serif;
-      font-size: 1rem; font-weight: 600;
-      color: var(--white); cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center;
-      gap: 1rem; background: none; border: none;
-      width: 100%; text-align: left; padding: 0;
-      letter-spacing: 0.02em;
-    }
-    .gno-qa-question:hover { color: var(--gold-light); }
-    .gno-qa-icon {
-      flex-shrink: 0; width: 18px; height: 18px;
-      color: var(--gold); transition: transform 0.3s ease;
-    }
-    .gno-qa-item.open .gno-qa-icon { transform: rotate(45deg); }
-    .gno-qa-answer {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-      color: rgba(255,255,255,0.6);
-      font-size: 0.95rem; line-height: 1.85;
-    }
-    .gno-qa-item.open .gno-qa-answer {
-      max-height: 300px;
-      padding-top: 0.9rem;
+    select option { background: var(--surface-2); }
+    textarea { resize: vertical; min-height: 130px; }
+
+    .form-submit { margin-top: 6px; }
+    .form-submit .btn { width: 100%; justify-content: center; padding: 18px; }
+
+    .form-notice {
+      margin-top: 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      letter-spacing: 0.04em;
     }
 
-    /* GNO RESPONSIVE */
-    @media (max-width: 900px) {
-      .gno-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .gno-img-wrap { aspect-ratio: 4/3; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 56px 32px;
+      border: 1px solid var(--gold);
+      background: var(--gold-dim);
     }
+    .form-success .s-icon { font-size: 3rem; margin-bottom: 18px; }
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .form-success p { color: rgba(245,240,232,0.72); }
 
-    /* ─── SCROLL ANIMATIONS ─── */
-    .reveal {
-      opacity: 1; transform: none;
-      transition: opacity 0.7s ease, transform 0.7s ease;
+    /* ─── FOOTER ────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 64px 0 44px;
+      text-align: center;
     }
-    .js-reveal .reveal {
-      opacity: 0; transform: translateY(28px);
+    .footer-logo { width: 190px; margin: 0 auto 26px; }
+    .footer-tagline {
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      margin-bottom: 36px;
     }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      list-style: none;
+      margin-bottom: 36px;
+    }
+    .footer-links a {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy { font-size: 0.82rem; color: rgba(122,117,109,0.55); }
 
-    /* ─── HERO LOGO ─── */
-    .hero-logo-img {
-      width: min(480px, 80vw);
-      height: auto;
-      object-fit: contain;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 4px 32px rgba(0,0,0,0.5));
-    }
+    /* ─── RESPONSIVE ────────────────────────────────────────── */
+    @media (max-width: 960px) {
+      :root { --pad-section: 52px; }
 
-    /* ─── FOOTER HAT ─── */
-    .footer-hat {
-      height: 22px; width: auto;
-      vertical-align: middle;
-      margin-right: 0.4rem;
-      opacity: 0.7;
-    }
+      .nav-links-row { display: none; }
+      .nav-logo-row  { display: none; }
+      .nav-mobile    { display: flex; }
 
-    /* ─── RESPONSIVE ─── */
-    @media (max-width: 900px) {
+      /* GT: übereinander stapeln – Bild oben, Text unten */
+      .gt-top     { grid-template-columns: 1fr; gap: 44px; }
+      .gt-media   { aspect-ratio: 16 / 9; order: 1 !important; }
+      .gt-intro   { order: 2 !important; }
+      .gt-cards   { grid-template-columns: 1fr; }
+
       .sortiment-grid { grid-template-columns: 1fr 1fr; }
-      .ueber-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .ueber-img-wrap { aspect-ratio: 4/3; max-height: 360px; }
-      .standorte-grid { grid-template-columns: 1fr; }
-      .kontakt-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .section-inner { padding: 4rem 1.5rem; }
-    }
-    @media (max-width: 600px) {
-      .sortiment-grid { grid-template-columns: 1fr; }
-      .nav-top { padding: 1rem 1.5rem; }
-      .tab-btn { padding: 0.8rem 1rem; font-size: 0.65rem; letter-spacing: 0.15em; }
-      h1.hero-title { font-size: clamp(2.8rem, 13vw, 4.5rem); }
-      .hero-ornament-line { width: 36px; }
-      .standort-card { padding: 2rem 1.5rem; }
-      .modal-box { padding: 2rem 1.5rem; }
-      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.2rem; }
+
+      .stores-grid  { grid-template-columns: 1fr; }
+
+      .kontakt-grid { grid-template-columns: 1fr; gap: 52px; }
+      .form-row     { grid-template-columns: 1fr; }
     }
 
-    /* ─── GOLD TEXTURE OVERLAY ─── */
-    .gold-texture {
-      background-image: repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(201,168,76,0.015) 2px,
-        rgba(201,168,76,0.015) 4px
-      );
+    @media (max-width: 560px) {
+      :root { --pad-section: 40px; }
+      .container { padding: 0 22px; }
+
+      .hero-logo { width: 200px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+
+      .sortiment-grid { grid-template-columns: 1fr; }
+
+      .footer-links { gap: 22px; }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ─── NAVBAR ─── -->
-<nav>
-  <div class="nav-top">
-    <a class="nav-logo" href="#home">
-      <img src="SUITS_quer_negativ.png" alt="SUITS modern menswear" class="nav-logo-img" />
-    </a>
-  </div>
-  <div class="tab-bar" role="navigation">
-    <a class="tab-btn active" href="#home">Start</a>
-    <a class="tab-btn" href="#gno">Night Out</a>
-    <a class="tab-btn" href="#sortiment">Sortiment</a>
-    <a class="tab-btn" href="#ueber">Über uns</a>
-    <a class="tab-btn" href="#standorte">Standorte</a>
-    <a class="tab-btn" href="#kontakt">Kontakt</a>
-  </div>
-</nav>
+  <!-- ═══════════════════════ NAVBAR ═══════════════════════════ -->
+  <nav id="navbar" role="navigation" aria-label="Hauptnavigation">
+    <div class="container" style="position: relative;">
 
-<!-- ─── HERO ─── -->
-<section id="home">
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="hero-grain" aria-hidden="true"></div>
-  <div class="hero-content">
-    <img src="SUITS_Logo_negativ_Freisteller.png" alt="SUITS modern menswear" class="hero-logo-img" />
-    <p class="hero-tagline">
-      Männlich
-      <span class="hero-tagline-sep">·</span>
-      Markant
-      <span class="hero-tagline-sep">·</span>
-      Mutig
-    </p>
-    <a class="hero-cta" href="#kontakt">Jetzt Termin buchen</a>
-  </div>
-</section>
-
-<!-- ─── INFO BANNER ─── -->
-<div class="info-banner">
-  <div class="banner-inner">
-    <div class="banner-item">
-      <span class="banner-label">Mo – Sa</span>
-      <span>10:00 – 20:00 Uhr</span>
-    </div>
-    <div class="banner-sep"></div>
-    <div class="banner-item">
-      <span class="banner-label">So</span>
-      <span>Geschlossen</span>
-    </div>
-    <div class="banner-sep"></div>
-    <div class="banner-item">
-      <span>📍</span>
-      <a href="#standorte">Kiel &amp; Lübeck &nbsp;·&nbsp; im CITTI-PARK</a>
-    </div>
-  </div>
-</div>
-
-<!-- ─── GENTLEMEN'S NIGHT OUT ─── -->
-<section id="gno">
-  <div class="section-inner">
-    <p class="section-label reveal">Exklusiv bei SUITS</p>
-    <h2 class="section-title reveal reveal-delay-1">Gentlemen's <em>Night Out</em></h2>
-    <div class="divider reveal reveal-delay-2"></div>
-
-    <!-- BILD + TEXT -->
-    <div class="gno-layout reveal reveal-delay-3">
-
-      <div class="gno-img-wrap">
-        <div class="gno-img-placeholder" id="gno-img-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="8" y="12" width="48" height="40" rx="1" stroke="white" stroke-width="1"/>
-            <circle cx="22" cy="26" r="5" stroke="white" stroke-width="1"/>
-            <path d="M8 42l14-10 10 8 10-12 14 14" stroke="white" stroke-width="1" stroke-linejoin="round"/>
-          </svg>
-          <p>Dein Bild hier<br><span>gno_bild.JPG</span></p>
-        </div>
-        <img class="gno-img" src="gno_bild.JPG" alt="Gentlemen's Night Out"
-          onload="this.style.display='block'; document.getElementById('gno-img-placeholder').style.display='none';"
-          onerror="this.style.display='none';" style="display:none; position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" />
-        <div class="gno-img-frame"></div>
-      </div>
-
-      <div class="gno-text">
-        <p class="gno-body" data-field="gno-text">
-          Hier steht Dein Text zur Gentlemen's Night Out. Beschreibe das Event, die Atmosphaere und was Gaeste erwartet. Dieser Platzhalter kann jederzeit ersetzt werden.
-        </p>
-        <a class="gno-ig-link" href="https://www.instagram.com/suits_menswear" target="_blank" rel="noopener">
-          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="2" y="2" width="16" height="16" rx="4" stroke="#c9a84c" stroke-width="1.3"/>
-            <circle cx="10" cy="10" r="3.5" stroke="#c9a84c" stroke-width="1.3"/>
-            <circle cx="14.5" cy="5.5" r="1" fill="#c9a84c"/>
-          </svg>
-          Auf Instagram folgen
+      <!-- Zeile 1: Logo (zentriert, nur ganz oben sichtbar) -->
+      <div class="nav-logo-row">
+        <a href="#hero" aria-label="SUITS Startseite">
+          <img src="assets/images/logo-quer.png" alt="SUITS – modern menswear">
         </a>
       </div>
 
-    </div>
-
-    <!-- Q&A -->
-    <div class="gno-qa reveal reveal-delay-4">
-      <div class="gno-qa-header">
-        <img src="Hut.png" alt="SUITS Hut" class="gno-qa-hut" />
-        <p class="gno-qa-title">Häufige Fragen</p>
+      <!-- Zeile 2: Navigation Desktop (zentriert, erscheint beim Scrollen) -->
+      <div class="nav-links-row">
+        <ul class="nav-links">
+          <li><a href="#gentlemens-time">Gentlemen's Time</a></li>
+          <li><a href="#sortiment">Sortiment</a></li>
+          <li><a href="#standorte">Standorte</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
       </div>
 
-      <div class="gno-qa-item">
-        <button class="gno-qa-question" >
-          Wie kann ich einen Termin für die Gentlemen's Night Out buchen?
-          <svg class="gno-qa-icon" viewBox="0 0 18 18" fill="none"><line x1="9" y1="2" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-        <div class="gno-qa-answer">Ganz einfach – schreib uns eine Nachricht über unser Kontaktformular. Wir finden gemeinsam einen passenden Termin für dich.</div>
-      </div>
-
-      <div class="gno-qa-item">
-        <button class="gno-qa-question" >
-          Was kostet die Gentlemen's Night Out?
-          <svg class="gno-qa-icon" viewBox="0 0 18 18" fill="none"><line x1="9" y1="2" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-        <div class="gno-qa-answer">Gar nichts. Der Abend ist komplett kostenlos – Bier und Snacks inklusive. 😉</div>
-      </div>
-
-      <div class="gno-qa-item">
-        <button class="gno-qa-question" >
-          Wo findet die Gentlemen's Night Out statt?
-          <svg class="gno-qa-icon" viewBox="0 0 18 18" fill="none"><line x1="9" y1="2" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-        <div class="gno-qa-answer">Bei uns im Store – ob Kiel oder Lübeck liegt ganz bei dir. Wo genau, klären wir bei der Terminabsprache.</div>
-      </div>
-
-      <div class="gno-qa-item">
-        <button class="gno-qa-question" >
-          Was muss ich vorbereiten oder mitbringen?
-          <svg class="gno-qa-icon" viewBox="0 0 18 18" fill="none"><line x1="9" y1="2" x2="9" y2="16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="9" x2="16" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </button>
-        <div class="gno-qa-answer">Keine Vorkenntnisse, keine Vorbereitungen. Wir ermitteln nach deiner Anfrage gemeinsam deine Vorstellungen und kümmern uns um den Rest – von Kopf bis Fuß.</div>
-      </div>
+      <!-- Navigation Mobile (immer sichtbar als Menüband) -->
+      <ul class="nav-mobile" aria-label="Mobile Navigation">
+        <li><a href="#gentlemens-time">Gentlemen's<br>Time</a></li>
+        <li><a href="#sortiment">Sortiment</a></li>
+        <li><a href="#standorte">Standorte</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
 
     </div>
+  </nav>
 
+  <!-- Mobile Overlay -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobiles Menü">
+    <a href="#gentlemens-time" class="mobile-link">Gentlemen's Time</a>
+    <a href="#sortiment"       class="mobile-link">Sortiment</a>
+    <a href="#standorte"       class="mobile-link">Standorte</a>
+    <a href="#kontakt"         class="mobile-link">Kontakt</a>
   </div>
-</section>
 
-<!-- ─── SORTIMENT ─── -->
-<section id="sortiment" class="gold-texture">
-  <div class="section-inner">
-    <p class="section-label reveal">Unser Sortiment</p>
-    <h2 class="section-title reveal reveal-delay-1">Alles, was <em>Mann</em><br>besonders macht</h2>
-    <div class="divider reveal reveal-delay-2"></div>
 
-    <div class="sortiment-grid">
+  <!-- ═══════════════════════ HERO ════════════════════════════ -->
+  <section id="hero" aria-label="Willkommen">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Dein Herrenausstatter in Kiel &amp; Lübeck</p>
 
-      <div class="sortiment-card reveal reveal-delay-1" onclick="openGalerie('anzuege')">
-        <p class="sortiment-num">01</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 8l-6 8v24h32V16l-6-8M22 8v10M16 8c0 3.3 2.7 6 6 6s6-2.7 6-6" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <p class="sortiment-name">Anzüge</p>
-        <p class="sortiment-desc">Maßgeschneiderte Silhouetten für jeden Anlass – vom Business-Meeting bis zur Hochzeit.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
+      <!--
+        Logo-Datei: assets/images/logo-negativ.png
+      -->
+      <img
+        src="assets/images/logo-negativ.png"
+        alt="SUITS – modern menswear"
+        class="hero-logo"
+      >
 
-      <div class="sortiment-card reveal reveal-delay-2" onclick="openGalerie('hemden')">
-        <p class="sortiment-num">02</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="8" width="24" height="28" rx="1" stroke="#c9a84c" stroke-width="1.2"/>
-          <path d="M16 8v4l6 4 6-4V8M22 20v16" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
-        </svg>
-        <p class="sortiment-name">Hemden</p>
-        <p class="sortiment-desc">Moderne Schnitte, hochwertige Stoffe – perfekt für jeden Anlass, vom Büro bis zum Abend.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
+      <h1 class="hero-tagline">
+        Dressed for the <em>Moment.</em>
+      </h1>
+      <p class="hero-sub">
+        Zeitlose Mode. Persönliche Beratung. Unvergessliche Erlebnisse.
+      </p>
 
-      <div class="sortiment-card reveal reveal-delay-3" onclick="openGalerie('accessoires')">
-        <p class="sortiment-num">03</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 10l3 7h7l-6 4 2 7-6-4-6 4 2-7-6-4h7z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round"/>
-          <circle cx="22" cy="34" r="4" stroke="#c9a84c" stroke-width="1.2"/>
-        </svg>
-        <p class="sortiment-name">Accessoires</p>
-        <p class="sortiment-desc">Krawatten, Einstecktücher, Gürtel und mehr – die Details, die einen Look vollenden.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
-
-      <div class="sortiment-card reveal reveal-delay-1" onclick="openGalerie('hosen')">
-        <p class="sortiment-num">04</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M10 8h24v6l-4 22h-6l-2-14-2 14h-6L10 14V8z" stroke="#c9a84c" stroke-width="1.2" stroke-linejoin="round"/>
-        </svg>
-        <p class="sortiment-name">Chinos &amp; Jeans</p>
-        <p class="sortiment-desc">Vielseitige Basics, die lässig und scharf zugleich wirken – für jeden Tag.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
-
-      <div class="sortiment-card reveal reveal-delay-2" onclick="openGalerie('schuhe')">
-        <p class="sortiment-num">05</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8 30c4-6 12-8 16-4s8 4 12-2" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
-          <ellipse cx="22" cy="30" rx="14" ry="6" stroke="#c9a84c" stroke-width="1.2"/>
-        </svg>
-        <p class="sortiment-name">Schuhe</p>
-        <p class="sortiment-desc">Von klassisch bis modern – das perfekte Fundament für jedes Outfit.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
-
-      <div class="sortiment-card reveal reveal-delay-3" onclick="openGalerie('huete')">
-        <p class="sortiment-num">06</p>
-        <svg class="sortiment-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="22" cy="16" r="10" stroke="#c9a84c" stroke-width="1.2"/>
-          <path d="M12 22c0 8 4 14 10 14s10-6 10-14" stroke="#c9a84c" stroke-width="1.2"/>
-          <path d="M10 16h24" stroke="#c9a84c" stroke-width="1" stroke-dasharray="2 2"/>
-        </svg>
-        <p class="sortiment-name">Hüte &amp; Caps</p>
-        <p class="sortiment-desc">Kopfbedeckungen mit Charakter – das Detail, das den Unterschied macht.</p>
-        <span class="sortiment-card-arrow">Bilder ansehen →</span>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── ÜBER UNS ─── -->
-<section id="ueber">
-  <div class="section-inner">
-    <p class="section-label reveal">Über uns</p>
-    <h2 class="section-title reveal reveal-delay-1">Dein Store.<br><em>Dein Look.</em></h2>
-    <div class="divider reveal reveal-delay-2"></div>
-    <div class="ueber-layout reveal reveal-delay-3">
-      <div class="ueber-img-wrap">
-        <div class="ueber-img-placeholder">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="16" y="8" width="32" height="48" rx="1" stroke="white" stroke-width="1"/>
-            <path d="M24 8v8l8 6 8-6V8" stroke="white" stroke-width="1"/>
+      <div class="hero-actions">
+        <a href="#gentlemens-time" class="btn btn-gold">
+          Gentlemen's Time entdecken
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <path d="M2.5 7.5h10M8 3l4.5 4.5L8 12"/>
           </svg>
-        </div>
-        <div class="ueber-img-frame"></div>
-      </div>
-      <div>
-        <p class="body-text">SUITS modern menswear ist Dein Herrenausstatter im Norden. Mit Leidenschaft für Details, Qualität und zeitlosen Stil bieten wir Dir alles, was einen Mann wirklich besonders macht – in Kiel seit 2020 und in Lübeck seit 2024.</p>
-        <div class="values-list">
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <div class="value-text">
-              <strong>Nordisches Feeling</strong>
-              Maritimer Charakter trifft auf moderne Männlichkeit – ein unverwechselbares Konzept.
-            </div>
-          </div>
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <div class="value-text">
-              <strong>Höchste Qualität</strong>
-              Jedes Stück wird mit Bedacht ausgewählt – für einen Auftritt, der im Gedächtnis bleibt.
-            </div>
-          </div>
-          <div class="value-item">
-            <div class="value-dot"></div>
-            <div class="value-text">
-              <strong>Persönliche Beratung</strong>
-              Wir nehmen uns Zeit für Dich – denn der perfekte Look verdient volle Aufmerksamkeit.
-            </div>
-          </div>
-        </div>
+        </a>
+        <a href="#sortiment" class="btn btn-outline">
+          Unser Sortiment
+        </a>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ─── STANDORTE ─── -->
-<section id="standorte" class="gold-texture">
-  <div class="section-inner">
-    <p class="section-label reveal">Unsere Standorte</p>
-    <h2 class="section-title reveal reveal-delay-1">Wo du uns <em>findest</em></h2>
-    <div class="divider reveal reveal-delay-2"></div>
-
-    <div class="standorte-grid">
-
-      <!-- KIEL -->
-      <div class="standort-card reveal reveal-delay-1">
-        <p class="standort-since">Seit 2020</p>
-        <h3 class="standort-city">Kiel</h3>
-        <div class="standort-map" id="map-kiel">
-          <div class="standort-map-placeholder">Karte wird geladen …</div>
-        </div>
-        <div class="standort-info">
-          <div class="standort-row">
-            <span class="standort-row-label">Adresse</span>
-            <span>CITTI-PARK Kiel<br>Mühlendamm 1, 24113 Kiel<br>Obergeschoss</span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">Telefon</span>
-            <span><a href="tel:+4943166679600">0431 666 796 00</a></span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">E-Mail</span>
-            <span><a href="/cdn-cgi/l/email-protection#432e2c2a2d0330362a37306e2e262d30342622316d2726"><span class="__cf_email__" data-cfemail="4e232127200e3d3b273a3d63232b203d392b2f3c602a2b">[email&#160;protected]</span></a></span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">Öffnungszeiten</span>
-            <div class="zeiten-mini">
-              <span>Mo – Sa</span><span>10:00 – 20:00 Uhr</span>
-              <span>So</span><span>Geschlossen</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- LÜBECK -->
-      <div class="standort-card reveal reveal-delay-2">
-        <p class="standort-since">Seit 2024</p>
-        <h3 class="standort-city">Lübeck</h3>
-        <div class="standort-map" id="map-luebeck">
-          <div class="standort-map-placeholder">Karte wird geladen …</div>
-        </div>
-        <div class="standort-info">
-          <div class="standort-row">
-            <span class="standort-row-label">Adresse</span>
-            <span>CITTI-PARK Lübeck<br>Herrenholz 14, 23556 Lübeck<br>Erdgeschoss</span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">Telefon</span>
-            <span><a href="tel:+4945181308777">0451 813 087 77</a></span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">E-Mail</span>
-            <span><a href="/cdn-cgi/l/email-protection#2b46444245475e4e494e48406b585e425f5806464e45585c4e4a59054f4e">moinluebeck@<br>suits-menswear.de</a></span>
-          </div>
-          <div class="standort-row">
-            <span class="standort-row-label">Öffnungszeiten</span>
-            <div class="zeiten-mini">
-              <span>Mo – Sa</span><span>10:00 – 20:00 Uhr</span>
-              <span>So</span><span>Geschlossen</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="scroll-cue" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ─── KONTAKT ─── -->
-<section id="kontakt">
-  <div class="section-inner">
-    <p class="section-label reveal">Kontakt</p>
-    <h2 class="section-title reveal reveal-delay-1">Wir freuen uns<br><em>von Dir zu hören</em></h2>
-    <div class="divider reveal reveal-delay-2"></div>
 
-    <div class="kontakt-layout">
-      <!-- FORM -->
-      <div class="reveal reveal-delay-2">
-        <div class="kontakt-form" id="kontakt-form">
-          <div class="form-group">
-            <label class="form-label" for="f-name">Name</label>
-            <input class="form-input" type="text" id="f-name" placeholder="Max Mustermann" autocomplete="name" />
+  <!-- ═══════════════ GENTLEMEN'S TIME ════════════════════════ -->
+  <section id="gentlemens-time" aria-labelledby="gt-heading">
+    <div class="container">
+
+      <div class="section-label">Das Erlebnis</div>
+
+      <!-- Zweispaltig: Bild/Video links · Text rechts -->
+      <div class="gt-top">
+
+        <!--
+          ═══════════════════════════════════════════════════
+          BILD / VIDEO EINSETZEN:
+          Option A – Foto:
+            Ersetze den gt-media-inner Block durch:
+            <img src="assets/images/gt-atmosphaere.jpg" alt="Gentlemen's Time Atmosphäre">
+
+          Option B – Video (empfohlen für Atmosphäre):
+            <video src="assets/video/gt-reel.mp4" autoplay muted loop playsinline
+                   aria-label="Gentlemen's Time Stimmungsvideo"></video>
+          ═══════════════════════════════════════════════════
+        -->
+        <div class="gt-media" aria-label="Bild-Platzhalter Gentlemen's Time" style="order: 1;">
+          <div class="gt-media-inner">
+            <span class="gt-media-icon" aria-hidden="true">🎩</span>
+            <span class="gt-media-label">Foto oder Video<br>hier einsetzen</span>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="f-email">E-Mail</label>
-            <input class="form-input" type="email" id="f-email" placeholder="deine@email.de" autocomplete="email" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-standort">Standort</label>
-            <select class="form-select" id="f-standort">
-              <option value="">Standort wählen</option>
-              <option value="kiel">Kiel – CITTI-PARK</option>
-              <option value="luebeck">Lübeck – CITTI-PARK</option>
-              <option value="beide">Beide Standorte</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-nachricht">Nachricht</label>
-            <textarea class="form-textarea" id="f-nachricht" placeholder="Deine Nachricht an uns …"></textarea>
-          </div>
-          <button class="form-btn" onclick="submitForm()">
-            Nachricht senden
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </div>
+
+        <div class="gt-intro" style="order: 2;">
+          <h2 class="section-title" id="gt-heading">
+            Gentlemen's<br><span class="gold">Time.</span>
+          </h2>
+          <p>
+            Bucht einen persönlichen Beratungstermin – mit euren engsten Freunden, für den perfekten Anzug zur Hochzeit, zum Abiball oder ganz einfach so. Wir sorgen in entspannter Atmosphäre dafür, dass jeder von euch genau den Anzug bekommt, der ihn zu einem richtigen Gentleman macht.
+          </p>
+          <p>
+            Kühle Biere, feine Snacks und Berater, die zuhören: Das ist Gentlemen's Time – Shopping als echte Quality Time unter Freunden. Der Store hat regulär geöffnet, aber eure Beratung gehört nur euch.
+          </p>
+          <a href="#kontakt" class="btn btn-gold" style="margin-top: 36px; display: inline-flex;">
+            Jetzt unverbindlich anfragen
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M2.5 7.5h10M8 3l4.5 4.5L8 12"/>
             </svg>
+          </a>
+        </div>
+
+      </div><!-- /.gt-top -->
+
+      <div class="gt-cards">
+        <div class="gt-card">
+          <div class="gt-card-icon">🥂</div>
+          <div class="gt-card-title">Persönliche Beratung</div>
+          <p>
+            Unsere Berater haben Zeit für euch – jede Person, jeder Look, jeder Anlass. Wir hören zu und finden gemeinsam das Richtige.
+          </p>
+        </div>
+        <div class="gt-card">
+          <div class="gt-card-icon">🍺</div>
+          <div class="gt-card-title">Drinks &amp; Snacks</div>
+          <p>
+            Kühle Biere, erfrischende Getränke und feine Snacks sind selbstverständlich inklusive. Weil guter Stil mehr als Mode ist.
+          </p>
+        </div>
+        <div class="gt-card">
+          <div class="gt-card-icon">🤝</div>
+          <div class="gt-card-title">Gemeinsam Gentleman werden</div>
+          <p>
+            Ob Hochzeit, Abiball oder der erste große Auftritt – wir begleiten euch als Gruppe und finden für jeden den perfekten Look.
+          </p>
+        </div>
+      </div>
+
+      <!-- ── FAQ ── -->
+      <div class="faq-heading">
+        <span class="section-label" style="margin-bottom: 0;">Häufige Fragen</span>
+      </div>
+      <div class="faq-wrap" aria-label="Häufige Fragen">
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Kostet die Gentlemen's Time etwas?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
           </button>
-          <div class="form-success" id="form-success">
-            ✓ &nbsp;Vielen Dank! Wir melden uns schnellstmöglich bei Dir.
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Der Termin selbst ist komplett kostenlos. Ihr zahlt am Ende nur das, was ihr wirklich mitnehmen möchtet – und das ganz ohne Druck.
+            </div>
           </div>
         </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie viele Personen können teilnehmen?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Das ist euch überlassen – wir empfehlen eine Gruppengröße von 2 bis 6 Freunden, damit jeder die Aufmerksamkeit bekommt, die er verdient.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Wie lange dauert ein Termin?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Von einer Stunde bis zu vier Stunden hatten wir schon alles. Da wir wollen, dass ihr vollends zufrieden seid, nehmen wir uns die Zeit, die ihr braucht – ganz ohne Blick auf die Uhr.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Für welche Anlässe eignet sich Gentlemen's Time?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Hochzeit, Abiball, Firmenfeier, Geburtstag – oder einfach so. Wenn ihr gemeinsam gut aussehen wollt, ist das Anlass genug.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            Muss ich vorher wissen, was ich kaufen möchte?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              Überhaupt nicht. Ihr kommt so, wie ihr seid – unsere Berater helfen euch, den richtigen Look zu finden. Ideen, Inspirationen und ein offenes Ohr bringen wir mit.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            In welchem Store findet Gentlemen's Time statt?
+            <span class="faq-icon" aria-hidden="true">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M5 1v8M1 5h8"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <div class="faq-answer-inner">
+              In beiden – Kiel und Lübeck. Wählt beim Anfragen einfach euren bevorzugten Standort, wir kümmern uns um den Rest.
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /.faq-wrap -->
+
+    </div>
+  </section>
+
+  <div class="divider container" aria-hidden="true"><span>✦</span></div>
+
+
+  <!-- ═══════════════════ SORTIMENT ══════════════════════════ -->
+  <section id="sortiment" aria-labelledby="sort-heading">
+    <div class="container">
+
+      <div class="section-label">Was wir führen</div>
+      <h2 class="section-title" id="sort-heading" style="margin-bottom: 44px;">
+        Unser <span class="gold">Sortiment.</span>
+      </h2>
+
+      <div class="sortiment-grid">
+
+        <div class="sort-card" data-category="anzuege">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-anzuege.jpg" alt="Anzüge"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">🤵</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">01</span>
+            <div class="sort-card-name">Anzüge</div>
+          </div>
+        </div>
+
+        <div class="sort-card" data-category="hemden">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-hemden.jpg" alt="Hemden"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">👔</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">02</span>
+            <div class="sort-card-name">Hemden</div>
+          </div>
+        </div>
+
+        <div class="sort-card" data-category="schuhe">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-schuhe.jpg" alt="Schuhe"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">👞</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">03</span>
+            <div class="sort-card-name">Schuhe</div>
+          </div>
+        </div>
+
+        <div class="sort-card" data-category="accessoires">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-accessoires.jpg" alt="Accessoires"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">⌚</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">04</span>
+            <div class="sort-card-name">Accessoires</div>
+          </div>
+        </div>
+
+        <div class="sort-card" data-category="huete">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-huete.jpg" alt="Hüte & Caps"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">🎩</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">05</span>
+            <div class="sort-card-name">Hüte &amp;<br>Caps</div>
+          </div>
+        </div>
+
+        <div class="sort-card" data-category="casual">
+          <!-- Bild tauschen: <img src="assets/images/sortiment-casual.jpg" alt="Smart Casual"> -->
+          <div class="sort-card-img">
+            <span class="sort-placeholder-icon" aria-hidden="true">🧥</span>
+          </div>
+          <div class="sort-card-overlay">
+            <span class="sort-card-label">06</span>
+            <div class="sort-card-name">(Smart)<br>Casual</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider container" aria-hidden="true"><span>✦</span></div>
+
+
+  <!-- ═══════════════════ STANDORTE ══════════════════════════ -->
+  <section id="standorte" aria-labelledby="store-heading">
+    <div class="container">
+
+      <div class="section-label">Wo ihr uns findet</div>
+      <h2 class="section-title" id="store-heading" style="margin-bottom: 44px;">
+        Unsere <span class="gold">Stores.</span>
+      </h2>
+
+      <div class="stores-grid">
+
+        <!-- Kiel -->
+        <div class="store-card">
+          <iframe
+            class="store-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2327.490804284854!2d10.098371799999997!3d54.312954100000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b25569a5dafcb1%3A0x66d4f65bb90a786!2sSUITS%20modern%20menswear!5e0!3m2!1sde!2sde!4v1776783754825!5m2!1sde!2sde"
+            title="SUITS modern menswear – Kiel"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="store-info">
+            <div class="store-city">Kiel</div>
+            <div class="store-name">SUITS modern menswear<br>im CITTI-PARK Kiel</div>
+            <div class="store-detail">
+              <span class="store-icon" aria-hidden="true">📍</span>
+              <span>Schwedendamm 1–3<br>24143 Kiel</span>
+            </div>
+            <div class="store-detail">
+              <span class="store-icon" aria-hidden="true">🕐</span>
+              <span>Mo–Sa: 09:30 – 20:00 Uhr</span>
+            </div>
+            <p class="store-note">
+              <!-- Öffnungszeiten bitte prüfen und ggf. anpassen -->
+              Öffnungszeiten können an Feiertagen abweichen.
+            </p>
+          </div>
+        </div>
+
+        <!-- Lübeck -->
+        <div class="store-card">
+          <iframe
+            class="store-map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2353.0983099517!2d10.624831376620874!3d53.85889977244239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b20fe243508853%3A0x6d95165f48a5f10e!2sSUITS%20modern%20menswear!5e0!3m2!1sde!2sde!4v1776783802007!5m2!1sde!2sde"
+            title="SUITS modern menswear – Lübeck"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+          <div class="store-info">
+            <div class="store-city">Lübeck</div>
+            <div class="store-name">SUITS modern menswear<br>im CITTI-PARK Lübeck</div>
+            <div class="store-detail">
+              <span class="store-icon" aria-hidden="true">📍</span>
+              <span>Geniner Straße 2–4<br>23556 Lübeck</span>
+            </div>
+            <div class="store-detail">
+              <span class="store-icon" aria-hidden="true">🕐</span>
+              <span>Mo–Sa: 09:30 – 20:00 Uhr</span>
+            </div>
+            <p class="store-note">
+              <!-- Öffnungszeiten bitte prüfen und ggf. anpassen -->
+              Öffnungszeiten können an Feiertagen abweichen.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ KONTAKT ════════════════════════════ -->
+  <section id="kontakt" aria-labelledby="kontakt-heading">
+    <div class="container">
+      <div class="kontakt-grid">
+
+        <div class="kontakt-left">
+          <div class="section-label">Unverbindlich anfragen</div>
+          <h2 class="section-title" id="kontakt-heading">
+            Schreibt<br>uns <span class="gold">an.</span>
+          </h2>
+          <p>
+            Bucht eure Gentlemen's Time.
+          </p>
+          <div class="kontakt-note">
+            <div class="kontakt-note-icon" aria-hidden="true">💬</div>
+            <p>
+              Eure Anfrage ist vollkommen unverbindlich und kostenlos. Wir melden uns persönlich bei euch, um Termin, Uhrzeit und alle Wünsche gemeinsam zu besprechen.
+            </p>
+          </div>
+        </div>
+
+        <div class="kontakt-right">
+          <!--
+            ═══════════════════════════════════════════════════
+            FORMSPREE SETUP (kostenloser Formularversand):
+            1. Gehe auf https://formspree.io → kostenlosen Account erstellen
+            2. "New Form" anlegen → Form-ID kopieren (z.B. xbjnkdqr)
+            3. Ersetze "DEINE_FORM_ID" unten mit deiner echten ID
+            4. Fertig – Formular-Einsendungen kommen direkt per E-Mail
+            Free-Tier: 50 Anfragen/Monat
+            ═══════════════════════════════════════════════════
+          -->
+          <form
+            id="contact-form"
+            action="https://formspree.io/f/DEINE_FORM_ID"
+            method="POST"
+            novalidate
+          >
+
+            <div class="form-group">
+              <label for="store">Store auswählen</label>
+              <select id="store" name="store" required>
+                <option value="" disabled selected>– Bitte wählen –</option>
+                <option value="Kiel">SUITS Kiel – CITTI-PARK</option>
+                <option value="Lübeck">SUITS Lübeck – CITTI-PARK</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Euer Name</label>
+                <input type="text" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" placeholder="max@beispiel.de" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="phone">Telefon <span class="opt">(optional)</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="+49 123 456789" autocomplete="tel">
+              </div>
+              <div class="form-group">
+                <label for="date">Wunschtermin <span class="opt">(optional)</span></label>
+                <input type="date" id="date" name="wunschtermin">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Eure Nachricht</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Erzählt uns von eurem Anlass – wie viele Personen, welcher Termin, besondere Wünsche ..."
+                required
+              ></textarea>
+            </div>
+
+            <!-- Honeypot: Spam-Schutz -->
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" aria-hidden="true">
+            <input type="hidden" name="_subject" value="Neue Anfrage – SUITS Gentlemen's Time">
+
+            <div class="form-submit">
+              <button type="submit" class="btn btn-gold">
+                Anfrage senden
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+                  <path d="M2 7.5h11M8.5 3l4.5 4.5-4.5 4.5"/>
+                </svg>
+              </button>
+            </div>
+            <p class="form-notice">Unverbindlich &middot; Kostenlos &middot; Kein Spam</p>
+          </form>
+
+          <div class="form-success" id="form-success" role="alert" aria-live="polite">
+            <div class="s-icon" aria-hidden="true">🎩</div>
+            <h3>Anfrage erhalten!</h3>
+            <p>Vielen Dank – wir melden uns so schnell wie möglich persönlich bei euch. Bis bald im Store.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════ GALERIE MODAL ══════════════════════ -->
+  <div id="gallery-modal" role="dialog" aria-modal="true" aria-label="Produktgalerie">
+    <div class="gallery-backdrop" id="gallery-backdrop"></div>
+    <div class="gallery-box">
+
+      <div class="gallery-header">
+        <span class="gallery-title" id="gallery-title">Kategorie</span>
+        <span class="gallery-counter" id="gallery-counter">1 / 4</span>
+        <button class="gallery-close" id="gallery-close" aria-label="Galerie schließen">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M1 1l12 12M13 1L1 13"/>
+          </svg>
+        </button>
       </div>
 
-      <!-- ASIDE -->
-      <div class="kontakt-aside reveal reveal-delay-3">
-        <div class="kontakt-block">
-          <p class="kontakt-block-title">Kiel</p>
-          <div class="kontakt-links">
-            <a class="kontakt-link" href="tel:+4943166679600">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.5a9 9 0 004 4L11 9.5l4 1.5v3a1 1 0 01-1 1C6.5 15 1 9.5 1 3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-              0431 666 796 00
-            </a>
-            <a class="kontakt-link" href="/cdn-cgi/l/email-protection#a0cdcfc9cee0d3d5c9d4d38dcdc5ced3d7c5c1d28ec4c5">
-              <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M1 4l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
-              <span class="__cf_email__" data-cfemail="81eceee8efc1f2f4e8f5f2acece4eff2f6e4e0f3afe5e4">[email&#160;protected]</span>
-            </a>
-            <a class="kontakt-link" href="https://maps.google.com/?q=CITTI-PARK+Kiel" target="_blank" rel="noopener">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
-              Mühlendamm 1, 24113 Kiel
-            </a>
-          </div>
-        </div>
-
-        <div class="kontakt-block">
-          <p class="kontakt-block-title">Lübeck</p>
-          <div class="kontakt-links">
-            <a class="kontakt-link" href="tel:+4945181308777">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.5a9 9 0 004 4L11 9.5l4 1.5v3a1 1 0 01-1 1C6.5 15 1 9.5 1 3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
-              0451 813 087 77
-            </a>
-            <a class="kontakt-link" href="/cdn-cgi/l/email-protection#54393b3d3a3821313631373f1427213d20277939313a27233135267a3031">
-              <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><path d="M1 4l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg>
-              <span class="__cf_email__" data-cfemail="137e7c7a7d7f6676717670785360667a67603e7e767d60647672613d7776">[email&#160;protected]</span>
-            </a>
-            <a class="kontakt-link" href="https://maps.google.com/?q=CITTI-PARK+Lübeck" target="_blank" rel="noopener">
-              <svg viewBox="0 0 16 16" fill="none"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="6" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
-              Herrenholz 14, 23556 Lübeck
-            </a>
-          </div>
-        </div>
-
-        <div class="kontakt-block">
-          <p class="kontakt-block-title">Social Media</p>
-          <div class="kontakt-links">
-            <a class="kontakt-link" href="https://www.instagram.com/suits_menswear" target="_blank" rel="noopener">
-              <svg viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="4" r="0.8" fill="currentColor"/></svg>
-              @suits_menswear
-            </a>
-          </div>
-        </div>
+      <div class="gallery-stage" id="gallery-stage">
+        <button class="gallery-nav gallery-prev" id="gallery-prev" aria-label="Vorheriges Bild">
+          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M9 1L4 6.5 9 12"/>
+          </svg>
+        </button>
+        <button class="gallery-nav gallery-next" id="gallery-next" aria-label="Nächstes Bild">
+          <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M4 1l5 5.5L4 12"/>
+          </svg>
+        </button>
+        <!-- Bilder werden per JS eingefügt -->
       </div>
+
+      <div class="gallery-thumbs" id="gallery-thumbs">
+        <!-- Thumbnails werden per JS eingefügt -->
+      </div>
+
     </div>
   </div>
-</section>
 
-
-<!-- ─── SORTIMENT GALERIEN ─── -->
-<div id="galerie-overlay" class="galerie-overlay" onclick="if(event.target===this)closeGalerie()">
-  <div class="galerie-box">
-    <button class="galerie-close" onclick="closeGalerie()">✕</button>
-    <p class="galerie-title" id="galerie-title"></p>
-    <div class="galerie-divider"></div>
-    <div class="galerie-grid" id="galerie-grid"></div>
-  </div>
-</div>
-
-<!-- ─── FOOTER ─── -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-logo"><img src="Hut.png" alt="SUITS Hut" class="footer-hat" /> SUITS <span>·</span> modern menswear</div>
-    <div class="footer-links">
-      <button class="footer-link" onclick="openModal('modal-impressum')">Impressum</button>
-      <button class="footer-link" onclick="openModal('modal-dsgvo')">Datenschutz</button>
+  <!-- ═══════════════════ FOOTER ═════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <!--
+        Logo-Datei: assets/images/logo-negativ.png
+      -->
+      <img
+        src="assets/images/logo-negativ.png"
+        alt="SUITS – modern menswear"
+        class="footer-logo"
+      >
+      <p class="footer-tagline">Dressed for the Moment.</p>
+      <ul class="footer-links">
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="datenschutz.html">Datenschutz</a></li>
+      </ul>
+      <p class="footer-copy">
+        &copy; <span id="year"></span> SUITS modern menswear &middot; Alle Rechte vorbehalten
+      </p>
     </div>
-    <p class="footer-copy">© 2026 SUITS modern menswear</p>
-  </div>
-</footer>
+  </footer>
 
-<!-- ─── MODAL: IMPRESSUM ─── -->
-<div class="modal-overlay" id="modal-impressum" onclick="if(event.target===this)closeModal('modal-impressum')" role="dialog" aria-modal="true" aria-label="Impressum">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-impressum')" aria-label="Schließen">✕</button>
-    <h2 class="modal-title">Impressum</h2>
-    <div class="modal-divider"></div>
-    <div class="modal-content">
-      <h3>Angaben gemäß § 5 TMG</h3>
-      <p>SUITS modern menswear<br>
-      [Inhabername eintragen]<br>
-      CITTI-PARK Kiel, Mühlendamm 1<br>
-      24113 Kiel</p>
 
-      <h3>Kontakt</h3>
-      <p>Telefon: <a href="tel:+4943166679600">0431 666 796 00</a><br>
-      E-Mail: <a href="/cdn-cgi/l/email-protection#375a585e597744425e43441a5a52594440525645195352"><span class="__cf_email__" data-cfemail="600d0f090e2013150914134d0d050e13170501124e0405">[email&#160;protected]</span></a></p>
+  <!-- ═══════════════════ JAVASCRIPT ═════════════════════════ -->
+  <script>
+    // ── Aktuelles Jahr im Footer ───────────────────────
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-      <h3>Zweiter Standort</h3>
-      <p>CITTI-PARK Lübeck, Herrenholz 14<br>23556 Lübeck<br>
-      Telefon: <a href="tel:+4945181308777">0451 813 087 77</a><br>
-      E-Mail: <a href="/cdn-cgi/l/email-protection#204d4f494e4c55454245434b6053554954530d4d454e53574541520e4445"><span class="__cf_email__" data-cfemail="8ae7e5e3e4e6ffefe8efe9e1caf9ffe3fef9a7e7efe4f9fdefebf8a4eeef">[email&#160;protected]</span></a></p>
+    // ── Navbar: Logo oben, Reiter beim Scrollen ────────
+    const navbar     = document.getElementById('navbar');
+    const navAnchors = document.querySelectorAll('.nav-links a, .nav-mobile a');
+    const AT_TOP     = 60;
 
-      <h3>Verantwortlich für den Inhalt (§ 55 Abs. 2 RStV)</h3>
-      <p>[Inhabername], Adresse wie oben.</p>
+    function updateNavbar() {
+      navbar.classList.toggle('is-scrolled', window.scrollY > AT_TOP);
+    }
+    updateNavbar();
+    window.addEventListener('scroll', updateNavbar, { passive: true });
 
-      <h3>Streitschlichtung</h3>
-      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank">https://ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    // ── Aktiver Abschnitt ─────────────────────────────
+    const sections = document.querySelectorAll('section[id]');
 
-      <h3>Haftungshinweis</h3>
-      <p>Trotz sorgfältiger Kontrolle übernehmen wir keine Haftung für Inhalte externer Links. Eine Vervielfältigung oder Verwendung von Inhalten dieser Website ohne schriftliche Zustimmung ist nicht gestattet.</p>
-    </div>
-  </div>
-</div>
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navAnchors.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -50% 0px' });
 
-<!-- ─── MODAL: DATENSCHUTZ ─── -->
-<div class="modal-overlay" id="modal-dsgvo" onclick="if(event.target===this)closeModal('modal-dsgvo')" role="dialog" aria-modal="true" aria-label="Datenschutz">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal('modal-dsgvo')" aria-label="Schließen">✕</button>
-    <h2 class="modal-title">Datenschutzerklärung</h2>
-    <div class="modal-divider"></div>
-    <div class="modal-content">
-      <h3>1. Datenschutz auf einen Blick</h3>
-      <p>Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Deinen personenbezogenen Daten passiert, wenn Du diese Website besuchst.</p>
+    sections.forEach(s => sectionObserver.observe(s));
 
-      <h3>2. Verantwortliche Stelle</h3>
-      <p>Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist SUITS modern menswear, [Inhabername], Mühlendamm 1, 24113 Kiel.</p>
+    // ── Sortiment Galerie ─────────────────────────────
+    //
+    // BILDER HINZUFÜGEN:
+    // Füge pro Kategorie Bildpfade in das `gallery`-Objekt ein.
+    // Format: { src: 'assets/images/...', alt: 'Beschreibung' }
+    // Beliebig viele Bilder pro Kategorie möglich.
+    //
+    const gallery = {
+      anzuege: {
+        title: 'Anzüge',
+        icon: '🤵',
+        images: [
+          { src: 'assets/images/galerie/anzuege-01.jpg', alt: 'Anzug 1' },
+          { src: 'assets/images/galerie/anzuege-02.jpg', alt: 'Anzug 2' },
+          { src: 'assets/images/galerie/anzuege-03.jpg', alt: 'Anzug 3' },
+          { src: 'assets/images/galerie/anzuege-04.jpg', alt: 'Anzug 4' },
+        ]
+      },
+      hemden: {
+        title: 'Hemden',
+        icon: '👔',
+        images: [
+          { src: 'assets/images/galerie/hemden-01.jpg', alt: 'Hemd 1' },
+          { src: 'assets/images/galerie/hemden-02.jpg', alt: 'Hemd 2' },
+          { src: 'assets/images/galerie/hemden-03.jpg', alt: 'Hemd 3' },
+          { src: 'assets/images/galerie/hemden-04.jpg', alt: 'Hemd 4' },
+        ]
+      },
+      schuhe: {
+        title: 'Schuhe',
+        icon: '👞',
+        images: [
+          { src: 'assets/images/galerie/schuhe-01.jpg', alt: 'Schuh 1' },
+          { src: 'assets/images/galerie/schuhe-02.jpg', alt: 'Schuh 2' },
+          { src: 'assets/images/galerie/schuhe-03.jpg', alt: 'Schuh 3' },
+          { src: 'assets/images/galerie/schuhe-04.jpg', alt: 'Schuh 4' },
+        ]
+      },
+      accessoires: {
+        title: 'Accessoires',
+        icon: '⌚',
+        images: [
+          { src: 'assets/images/galerie/accessoires-01.jpg', alt: 'Accessoire 1' },
+          { src: 'assets/images/galerie/accessoires-02.jpg', alt: 'Accessoire 2' },
+          { src: 'assets/images/galerie/accessoires-03.jpg', alt: 'Accessoire 3' },
+          { src: 'assets/images/galerie/accessoires-04.jpg', alt: 'Accessoire 4' },
+        ]
+      },
+      huete: {
+        title: 'Hüte & Caps',
+        icon: '🎩',
+        images: [
+          { src: 'assets/images/galerie/huete-01.jpg', alt: 'Hut 1' },
+          { src: 'assets/images/galerie/huete-02.jpg', alt: 'Hut 2' },
+          { src: 'assets/images/galerie/huete-03.jpg', alt: 'Hut 3' },
+          { src: 'assets/images/galerie/huete-04.jpg', alt: 'Hut 4' },
+        ]
+      },
+      casual: {
+        title: '(Smart) Casual',
+        icon: '🧥',
+        images: [
+          { src: 'assets/images/galerie/casual-01.jpg', alt: 'Casual 1' },
+          { src: 'assets/images/galerie/casual-02.jpg', alt: 'Casual 2' },
+          { src: 'assets/images/galerie/casual-03.jpg', alt: 'Casual 3' },
+          { src: 'assets/images/galerie/casual-04.jpg', alt: 'Casual 4' },
+        ]
+      }
+    };
 
-      <h3>3. Datenerfassung auf dieser Website</h3>
-      <p>Diese Website erhebt keine personenbezogenen Daten automatisch, außer denjenigen, die Du im Kontaktformular freiwillig angibst (Name, E-Mail-Adresse, Nachricht).</p>
+    let currentIndex = 0;
+    let currentImages = [];
 
-      <h3>4. Hosting</h3>
-      <p>Diese Website wird über GitHub Pages gehostet. Es gelten die Datenschutzbestimmungen von GitHub Inc.: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub Privacy Statement</a>.</p>
+    const modal       = document.getElementById('gallery-modal');
+    const backdrop    = document.getElementById('gallery-backdrop');
+    const stage       = document.getElementById('gallery-stage');
+    const thumbsEl    = document.getElementById('gallery-thumbs');
+    const titleEl     = document.getElementById('gallery-title');
+    const counterEl   = document.getElementById('gallery-counter');
+    const closeBtn    = document.getElementById('gallery-close');
+    const prevBtn     = document.getElementById('gallery-prev');
+    const nextBtn     = document.getElementById('gallery-next');
 
-      <h3>5. Externe Dienste</h3>
-      <p>Diese Website lädt Schriftarten von Google Fonts. Dabei kann Google Deine IP-Adresse erfassen. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzrichtlinie</a>.</p>
+    function buildGallery(cat) {
+      const data = gallery[cat];
+      currentImages = data.images;
+      currentIndex  = 0;
+      titleEl.textContent = data.title;
 
-      <h3>6. Deine Rechte</h3>
-      <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Deiner personenbezogenen Daten. Wende Dich dazu an: <a href="/cdn-cgi/l/email-protection#1f727076715f6c6a766b6c32727a716c687a7e6d317b7a"><span class="__cf_email__" data-cfemail="90fdfff9fed0e3e5f9e4e3bdfdf5fee3e7f5f1e2bef4f5">[email&#160;protected]</span></a>.</p>
-    </div>
-  </div>
-</div>
+      // Stage: Bilder aufbauen
+      // Vorhandene Bilder/Platzhalter entfernen (Buttons bleiben)
+      stage.querySelectorAll('.gallery-img, .gallery-placeholder').forEach(el => el.remove());
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* ─── Q&A TOGGLE ─── */
-  // Q&A accordion – event delegation, no inline onclick needed
-  document.addEventListener('click', function(e) {
-    var btn = e.target.closest('.gno-qa-question');
-    if (!btn) return;
-    var item = btn.closest('.gno-qa-item');
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('.gno-qa-item.open').forEach(function(el) { el.classList.remove('open'); });
-    if (!isOpen) item.classList.add('open');
-  });
+      currentImages.forEach((img, i) => {
+        // Versuche Bild zu laden
+        const el = document.createElement('img');
+        el.src   = img.src;
+        el.alt   = img.alt;
+        el.className = 'gallery-img' + (i === 0 ? ' active' : '');
+        el.onerror = function() {
+          // Bild nicht gefunden → Platzhalter zeigen
+          this.style.display = 'none';
+          if (i === currentIndex) showPlaceholder(data.icon, img.src);
+        };
+        stage.appendChild(el);
+      });
 
-  /* ─── SORTIMENT GALERIE ─── */
-  var galerieData = {
-    anzuege:     { title: 'Anzüge',         files: ['anzuege_1.jpg','anzuege_2.jpg','anzuege_3.jpg','anzuege_4.jpg'] },
-    hemden:      { title: 'Hemden',          files: ['hemden_1.jpg','hemden_2.jpg','hemden_3.jpg','hemden_4.jpg'] },
-    accessoires: { title: 'Accessoires',     files: ['accessoires_1.jpg','accessoires_2.jpg','accessoires_3.jpg','accessoires_4.jpg'] },
-    hosen:       { title: 'Chinos & Jeans',  files: ['hosen_1.jpg','hosen_2.jpg','hosen_3.jpg','hosen_4.jpg'] },
-    schuhe:      { title: 'Schuhe',          files: ['schuhe_1.jpg','schuhe_2.jpg','schuhe_3.jpg','schuhe_4.jpg'] },
-    huete:       { title: 'Hüte & Caps',     files: ['huete_1.jpg','huete_2.jpg','huete_3.jpg','huete_4.jpg'] }
-  };
+      // Thumbnails aufbauen
+      thumbsEl.innerHTML = '';
+      currentImages.forEach((img, i) => {
+        const thumb = document.createElement('div');
+        thumb.className = 'gallery-thumb' + (i === 0 ? ' active' : '');
+        thumb.innerHTML = `<span class="gallery-thumb-ph">${data.icon}</span>`;
 
-  function openGalerie(key) {
-    var data = galerieData[key];
-    if (!data) return;
-    document.getElementById('galerie-title').textContent = data.title;
-    var grid = document.getElementById('galerie-grid');
-    grid.innerHTML = '';
-    data.files.forEach(function(file) {
-      var wrap = document.createElement('div');
-      wrap.className = 'galerie-img-wrap';
-      // Placeholder
-      var ph = document.createElement('div');
-      ph.className = 'galerie-placeholder';
-      ph.innerHTML = '<svg viewBox="0 0 44 44" fill="none"><rect x="6" y="10" width="32" height="24" rx="1" stroke="currentColor" stroke-width="1"/><circle cx="15" cy="19" r="3" stroke="currentColor" stroke-width="1"/><path d="M6 28l9-7 7 5 6-7 8 9" stroke="currentColor" stroke-width="1"/></svg><span>' + file + '</span>';
-      wrap.appendChild(ph);
-      // Image
-      var img = document.createElement('img');
-      img.alt = data.title;
-      img.onload = function() { this.classList.add('loaded'); ph.style.display = 'none'; };
-      img.onerror = function() { this.style.display = 'none'; };
-      img.src = file;
-      wrap.appendChild(img);
-      grid.appendChild(wrap);
-    });
-    var overlay = document.getElementById('galerie-overlay');
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+        const tImg = document.createElement('img');
+        tImg.src = img.src;
+        tImg.onerror = () => tImg.remove();
+        tImg.onload  = () => tImg.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;';
+        thumb.appendChild(tImg);
 
-  function closeGalerie() {
-    document.getElementById('galerie-overlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+        thumb.addEventListener('click', () => goTo(i));
+        thumbsEl.appendChild(thumb);
+      });
 
-  /* ─── MODAL ─── */
-  function openModal(id) {
-    const el = document.getElementById(id);
-    if (el) { el.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  }
-  function closeModal(id) {
-    const el = document.getElementById(id);
-    if (el) { el.classList.remove('open'); document.body.style.overflow = ''; }
-  }
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => m.classList.remove('open'));
+      updateCounter();
+      checkPlaceholder(data.icon);
+    }
+
+    function showPlaceholder(icon, path) {
+      stage.querySelectorAll('.gallery-placeholder').forEach(el => el.remove());
+      const ph = document.createElement('div');
+      ph.className = 'gallery-placeholder';
+      ph.innerHTML = `
+        <span class="gallery-ph-icon">${icon}</span>
+        <span class="gallery-ph-label">Bild folgt</span>
+        <span class="gallery-ph-path">${path}</span>`;
+      stage.appendChild(ph);
+    }
+
+    function checkPlaceholder(icon) {
+      const imgs = stage.querySelectorAll('.gallery-img');
+      const activeImg = imgs[currentIndex];
+      if (activeImg && activeImg.complete && activeImg.naturalWidth === 0) {
+        showPlaceholder(icon, currentImages[currentIndex].src);
+      } else if (activeImg && !activeImg.complete) {
+        activeImg.onload = () => stage.querySelectorAll('.gallery-placeholder').forEach(el => el.remove());
+      }
+    }
+
+    function goTo(index) {
+      const imgs   = stage.querySelectorAll('.gallery-img');
+      const thumbs = thumbsEl.querySelectorAll('.gallery-thumb');
+      imgs[currentIndex]?.classList.remove('active');
+      thumbs[currentIndex]?.classList.remove('active');
+      stage.querySelectorAll('.gallery-placeholder').forEach(el => el.remove());
+
+      currentIndex = (index + currentImages.length) % currentImages.length;
+      imgs[currentIndex]?.classList.add('active');
+      thumbs[currentIndex]?.classList.add('active');
+      updateCounter();
+
+      // Platzhalter wenn Bild fehlt
+      const cat = modal.dataset.cat;
+      const activeImg = imgs[currentIndex];
+      if (activeImg && activeImg.style.display === 'none') {
+        showPlaceholder(gallery[cat]?.icon || '📷', currentImages[currentIndex].src);
+      }
+    }
+
+    function updateCounter() {
+      counterEl.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+    }
+
+    function openGallery(cat) {
+      modal.dataset.cat = cat;
+      buildGallery(cat);
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeGallery() {
+      modal.classList.remove('open');
       document.body.style.overflow = '';
     }
-  });
 
-  /* ─── ACTIVE NAV ─── */
-  (function () {
-    var tabBtns  = Array.from(document.querySelectorAll('.tab-btn'));
-    var sections = Array.from(document.querySelectorAll('section[id]'));
-    var tabBar   = document.querySelector('.tab-bar');
-    var scroller = document.body; // body is the scroll container (overflow-x:hidden causes this)
-    var current  = '';
-    var raf      = null;
+    // Kacheln anklicken
+    document.querySelectorAll('.sort-card').forEach(card => {
+      card.addEventListener('click', () => openGallery(card.dataset.category));
+    });
 
-    function centerTab(btn) {
-      if (!tabBar) return;
-      var left = btn.offsetLeft - (tabBar.offsetWidth / 2) + (btn.offsetWidth / 2);
-      tabBar.scrollTo({ left: left, behavior: 'smooth' });
-    }
+    prevBtn.addEventListener('click', () => goTo(currentIndex - 1));
+    nextBtn.addEventListener('click', () => goTo(currentIndex + 1));
+    closeBtn.addEventListener('click', closeGallery);
+    backdrop.addEventListener('click', closeGallery);
 
-    function setActive(id) {
-      if (id === current) return;
-      current = id;
-      tabBtns.forEach(function (b) {
-        var active = b.getAttribute('href') === '#' + id;
-        b.classList.toggle('active', active);
-        if (active) centerTab(b);
+    // Tastatursteuerung
+    document.addEventListener('keydown', e => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft')  goTo(currentIndex - 1);
+      if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+      if (e.key === 'Escape')     closeGallery();
+    });
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen  = btn.getAttribute('aria-expanded') === 'true';
+        const answer  = btn.nextElementSibling;
+
+        // Alle schließen
+        document.querySelectorAll('.faq-question').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+          b.nextElementSibling.classList.remove('open');
+        });
+
+        // Diesen öffnen (falls er vorher zu war)
+        if (!isOpen) {
+          btn.setAttribute('aria-expanded', 'true');
+          answer.classList.add('open');
+        }
+      });
+    });
+    const form        = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    if (form) {
+      // Minimum-Datum für Wunschtermin = heute
+      const dateInput = document.getElementById('date');
+      if (dateInput) {
+        dateInput.min = new Date().toISOString().split('T')[0];
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Wird gesendet …';
+
+        try {
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            form.style.display = 'none';
+            formSuccess.style.display = 'block';
+            formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            throw new Error('Server-Fehler');
+          }
+        } catch {
+          btn.disabled = false;
+          btn.textContent = 'Anfrage senden';
+          alert(
+            'Es gab ein Problem beim Senden. Bitte versuche es erneut ' +
+            'oder kontaktiere uns direkt per Telefon.'
+          );
+        }
       });
     }
+  </script>
 
-    function pick() {
-      var scrollY = scroller.scrollTop || window.pageYOffset;
-      var vh      = window.innerHeight;
-      var pageH   = scroller.scrollHeight || document.documentElement.scrollHeight;
-      var trigger = vh * 0.30;
-
-      if (scrollY + vh >= pageH - 80) {
-        setActive(sections[sections.length - 1].id);
-        return;
-      }
-
-      var chosen = sections[0].id;
-      for (var i = 0; i < sections.length; i++) {
-        var top = sections[i].getBoundingClientRect().top;
-        if (top <= trigger) chosen = sections[i].id;
-      }
-      setActive(chosen);
-    }
-
-    function schedule() {
-      if (raf) return;
-      raf = requestAnimationFrame(function () { raf = null; pick(); });
-    }
-
-    // Listen on BOTH window and body to cover all browsers
-    window.addEventListener('scroll',     schedule, { passive: true });
-    scroller.addEventListener('scroll',   schedule, { passive: true });
-    window.addEventListener('touchmove',  schedule, { passive: true });
-    window.addEventListener('touchend', function () {
-      setTimeout(pick, 120);
-    }, { passive: true });
-
-    pick();
-  })();
-
-  /* ─── SCROLL REVEAL ─── */
-  const revealEls = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    document.body.classList.add('js-reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
-    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
-    revealEls.forEach(el => observer.observe(el));
-  }
-
-  /* ─── MAPS ─── */
-  function loadMaps() {
-    const kiel = document.getElementById('map-kiel');
-    if (kiel) kiel.innerHTML = `<iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2344.0!2d10.1167!3d54.3132!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b257b0c3cdcd03%3A0x0!2sCITTI-PARK+Kiel!5e0!3m2!1sde!2sde!4v1"
-      width="100%" height="100%" style="border:0;filter:grayscale(80%) invert(90%) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="SUITS Kiel Standort"></iframe>`;
-    const lub = document.getElementById('map-luebeck');
-    if (lub) lub.innerHTML = `<iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2333.0!2d10.6655!3d53.8753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b208e7b!2sCITTI-PARK+Lübeck!5e0!3m2!1sde!2sde!4v1"
-      width="100%" height="100%" style="border:0;filter:grayscale(80%) invert(90%) contrast(90%);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="SUITS Lübeck Standort"></iframe>`;
-  }
-  window.addEventListener('load', loadMaps);
-
-  /* ─── KONTAKT FORM ─── */
-  function submitForm() {
-    const name = document.getElementById('f-name').value.trim();
-    const email = document.getElementById('f-email').value.trim();
-    const nachricht = document.getElementById('f-nachricht').value.trim();
-    if (!name ||
+</body>
+</html>
