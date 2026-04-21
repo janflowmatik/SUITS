@@ -6,32 +6,7 @@
   <meta name="description" content="SUITS modern menswear – Dein Herrenausstatter in Kiel und Lübeck. Anzüge, Hemden, Accessoires und das exklusive Gentlemen's Time Erlebnis.">
   <title>SUITS – modern menswear</title>
 
-  <!-- BundaySans Custom Font (liegt in assets/fonts/) -->
-  <style>
-    @font-face {
-      font-family: 'BundaySans';
-      src: url('Buntype - BundaySans-Bold.otf') format('opentype');
-      font-weight: 700;
-      font-style: normal;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'BundaySans';
-      src: url('Buntype - BundaySans-SemiLightUpIt.otf') format('opentype');
-      font-weight: 300;
-      font-style: italic;
-      font-display: swap;
-    }
-    @font-face {
-      font-family: 'BundaySans';
-      src: url('Buntype - BundaySans-ThinIt.otf') format('opentype');
-      font-weight: 100;
-      font-style: italic;
-      font-display: swap;
-    }
-  </style>
-
-  <!-- Fallback / Body font -->
+  <!-- Schriftart: Cormorant Garamond -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
@@ -49,7 +24,7 @@
       --muted:       #7a756d;
       --border:      rgba(201, 160, 66, 0.22);
 
-      --font-display: 'BundaySans', 'Cormorant Garamond', Georgia, serif;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'Cormorant Garamond', Georgia, serif;
       --max-w:        1180px;
       --pad-section:  72px;
@@ -959,10 +934,10 @@
       display: block;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 10.5px;
+      font-size: 13px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--gold);
       margin-bottom: 9px;
     }
     label .opt {
@@ -1003,10 +978,10 @@
 
     .form-notice {
       margin-top: 14px;
-      font-size: 0.85rem;
-      color: var(--muted);
+      font-size: 1rem;
+      color: var(--gold);
       text-align: center;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.1em;
     }
 
     .form-success {
@@ -1172,10 +1147,7 @@
       </div>
     </div>
 
-    <div class="scroll-cue" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
+
   </section>
 
 
@@ -1471,16 +1443,12 @@
             <div class="store-name">SUITS modern menswear<br>im CITTI-PARK Kiel</div>
             <div class="store-detail">
               <span class="store-icon" aria-hidden="true">📍</span>
-              <span>Schwedendamm 1–3<br>24143 Kiel</span>
+              <span>Mühlendamm 1<br>24113 Kiel</span>
             </div>
             <div class="store-detail">
               <span class="store-icon" aria-hidden="true">🕐</span>
               <span>Mo–Sa: 09:30 – 20:00 Uhr</span>
             </div>
-            <p class="store-note">
-              <!-- Öffnungszeiten bitte prüfen und ggf. anpassen -->
-              Öffnungszeiten können an Feiertagen abweichen.
-            </p>
           </div>
         </div>
 
@@ -1499,16 +1467,12 @@
             <div class="store-name">SUITS modern menswear<br>im CITTI-PARK Lübeck</div>
             <div class="store-detail">
               <span class="store-icon" aria-hidden="true">📍</span>
-              <span>Geniner Straße 2–4<br>23556 Lübeck</span>
+              <span>Herrenholz 14<br>23556 Lübeck</span>
             </div>
             <div class="store-detail">
               <span class="store-icon" aria-hidden="true">🕐</span>
               <span>Mo–Sa: 09:30 – 20:00 Uhr</span>
             </div>
-            <p class="store-note">
-              <!-- Öffnungszeiten bitte prüfen und ggf. anpassen -->
-              Öffnungszeiten können an Feiertagen abweichen.
-            </p>
           </div>
         </div>
 
@@ -1567,7 +1531,7 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Euer Name</label>
+                <label for="name">Dein Name</label>
                 <input type="text" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name">
               </div>
               <div class="form-group">
@@ -1588,7 +1552,7 @@
             </div>
 
             <div class="form-group">
-              <label for="message">Eure Nachricht</label>
+              <label for="message">Deine Nachricht</label>
               <textarea
                 id="message"
                 name="message"
