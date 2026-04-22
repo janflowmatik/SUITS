@@ -545,6 +545,88 @@
       transform: translateY(80px);
       opacity: 0;
     }
+    /* ─── REVIEWS BANNER ────────────────────────────────────── */
+    .reviews-section {
+      margin: 52px 0 44px;
+    }
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .reviews-google-badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .reviews-track-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .reviews-track-wrap::before,
+    .reviews-track-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 100px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .reviews-track-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, var(--surface) 0%, transparent 100%);
+    }
+    .reviews-track-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, var(--surface) 0%, transparent 100%);
+    }
+    .reviews-track {
+      display: flex;
+      gap: 16px;
+      width: max-content;
+      cursor: grab;
+      user-select: none;
+    }
+    .reviews-track.dragging { cursor: grabbing; }
+    .review-card {
+      flex-shrink: 0;
+      width: 300px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 20px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color 0.2s;
+    }
+    .review-card:hover { border-color: rgba(201,160,66,0.45); }
+    .review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .review-stars { color: #fbbc04; font-size: 1rem; letter-spacing: 1px; }
+    .review-text {
+      font-size: 0.93rem;
+      color: rgba(245,240,232,0.75);
+      line-height: 1.68;
+      font-style: italic;
+    }
+    .review-author {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
     .faq-heading {
       margin-top: 56px;
       margin-bottom: 12px;
@@ -1301,6 +1383,149 @@
         </div>
       </div>
 
+      <!-- ── Rezensionen ── -->
+      <div class="reviews-section">
+        <div class="reviews-header">
+          <span class="section-label" style="margin-bottom: 0;">Das sagen unsere Kunden</span>
+          <div class="reviews-google-badge">
+            <!-- Google "G" Logo -->
+            <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+            </svg>
+            Echte Rezensionen von Google
+          </div>
+        </div>
+
+        <div class="reviews-track-wrap">
+          <div class="reviews-track">
+
+            <!-- Originale Karten (7 Stück) -->
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Der Service von Andreas und seinem Team war hervorragend. Sie halfen mir, die richtigen Größen zu finden, und die Stilberatung verlief reibungslos. Am Ende habe ich einen Anzug gefunden, den ich liebe und von dem ich nie gedacht hätte, dass er mir so gut passen würde!"</p>
+              <span class="review-author">Anousheh</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Wirklich toller Service und eine hervorragende Auswahl! Ich habe mich während des gesamten Einkaufs gut umsorgt gefühlt und habe mir zwei Oberteile gekauft, welche mir wirklich ausgezeichnet gefallen! Vielen Dank für dieses Einkaufserlebnis und zwei neue Lieblingsteile!!"</p>
+              <span class="review-author">Big Bird</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Suits in Kiel ist einfach nur gut! Beratung, Sympathie, Sortiment – alles bestens. Ich bin nach 30 Minuten mit einem Top-Outfit wieder hinausgegangen und bin absolut zufrieden. Mehr geht nicht."</p>
+              <span class="review-author">Benjamin Tomkins</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Wunderschöner, liebevoll gestalteter Laden. Tolles Sortiment und eine sehr kompetente und freundliche Beratung."</p>
+              <span class="review-author">Sönke Wiechert</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Super Service! Ich habe mir einen Anzug gekauft und wurde sehr gut beraten. Hier ist der Kunde König. Noch einmal speziellen Dank an den Filialleiter, hohe Fachkompetenz und Freundlichkeit in Person!"</p>
+              <span class="review-author">M D</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Als ich bei Suits war, habe ich die Mitarbeiter als äußerst kompetent empfunden. Sie haben sich viel Zeit genommen, um meine Wünsche zu verstehen und mich individuell zu beraten. Mich hat die Qualität der Kleidung und die einladende Atmosphäre überzeugt… ich werde definitiv wiederkommen!"</p>
+              <span class="review-author">Madlen Eicke</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Dieses Modegeschäft ist eines meiner Lieblings-Geschäfte geworden. Seit 2 Jahren gehe ich nun dort schon regelmäßig ein und aus und ich werde immer fündig. Tolle Beratung bei toller Atmosphäre. Sehr persönlich. Sowas findet man heutzutage selten."</p>
+              <span class="review-author">Robert Loos</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Ein richtig toller Laden. Dort gibt's nicht nur Anzüge, nein, auch nette Freizeitkleidung und sogar mal ne Jeans. Besonders erwähnenswert ist die absolut entspannte Atmosphäre, nicht zuletzt Dank der wirklich freundlichen und kompetenten Mitarbeiter."</p>
+              <span class="review-author">Thomas</span>
+            </div>
+
+            <div class="review-card">
+              <div class="review-top">
+                <span class="review-stars">★★★★★</span>
+              </div>
+              <p class="review-text">„Ein sehr guter Laden für Anzug etc. Wunderbare Beratung einfach klasse! Ich komme gerne dort hin und nehme die Fahrt von 100km in Kauf. Es lohnt sich."</p>
+              <span class="review-author">AWe</span>
+            </div>
+
+            <!-- Duplikat für nahtloses Loopen -->
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Der Service von Andreas und seinem Team war hervorragend. Sie halfen mir, die richtigen Größen zu finden, und die Stilberatung verlief reibungslos. Am Ende habe ich einen Anzug gefunden, den ich liebe und von dem ich nie gedacht hätte, dass er mir so gut passen würde!"</p>
+              <span class="review-author">Anousheh</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Wirklich toller Service und eine hervorragende Auswahl! Ich habe mich während des gesamten Einkaufs gut umsorgt gefühlt und habe mir zwei Oberteile gekauft, welche mir wirklich ausgezeichnet gefallen! Vielen Dank für dieses Einkaufserlebnis und zwei neue Lieblingsteile!!"</p>
+              <span class="review-author">Big Bird</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Suits in Kiel ist einfach nur gut! Beratung, Sympathie, Sortiment – alles bestens. Ich bin nach 30 Minuten mit einem Top-Outfit wieder hinausgegangen und bin absolut zufrieden. Mehr geht nicht."</p>
+              <span class="review-author">Benjamin Tomkins</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Wunderschöner, liebevoll gestalteter Laden. Tolles Sortiment und eine sehr kompetente und freundliche Beratung."</p>
+              <span class="review-author">Sönke Wiechert</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Super Service! Ich habe mir einen Anzug gekauft und wurde sehr gut beraten. Hier ist der Kunde König. Noch einmal speziellen Dank an den Filialleiter, hohe Fachkompetenz und Freundlichkeit in Person!"</p>
+              <span class="review-author">M D</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Als ich bei Suits war, habe ich die Mitarbeiter als äußerst kompetent empfunden. Sie haben sich viel Zeit genommen, um meine Wünsche zu verstehen und mich individuell zu beraten. Mich hat die Qualität der Kleidung und die einladende Atmosphäre überzeugt… ich werde definitiv wiederkommen!"</p>
+              <span class="review-author">Madlen Eicke</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Dieses Modegeschäft ist eines meiner Lieblings-Geschäfte geworden. Seit 2 Jahren gehe ich nun dort schon regelmäßig ein und aus und ich werde immer fündig. Tolle Beratung bei toller Atmosphäre. Sehr persönlich. Sowas findet man heutzutage selten."</p>
+              <span class="review-author">Robert Loos</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Ein richtig toller Laden. Dort gibt's nicht nur Anzüge, nein, auch nette Freizeitkleidung und sogar mal ne Jeans. Besonders erwähnenswert ist die absolut entspannte Atmosphäre, nicht zuletzt Dank der wirklich freundlichen und kompetenten Mitarbeiter."</p>
+              <span class="review-author">Thomas</span>
+            </div>
+            <div class="review-card">
+              <div class="review-top"><span class="review-stars">★★★★★</span></div>
+              <p class="review-text">„Ein sehr guter Laden für Anzug etc. Wunderbare Beratung einfach klasse! Ich komme gerne dort hin und nehme die Fahrt von 100km in Kauf. Es lohnt sich."</p>
+              <span class="review-author">AWe</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <!-- ── FAQ ── -->
       <div class="faq-heading">
         <span class="section-label" style="margin-bottom: 0;">Häufige Fragen</span>
@@ -1872,6 +2097,81 @@
 
     updateStagger();
     window.addEventListener('scroll', updateStagger, { passive: true });
+
+    // ── Reviews: Auto-Scroll + Drag/Swipe ────────────
+    (function() {
+      const track = document.querySelector('.reviews-track');
+      const wrap  = document.querySelector('.reviews-track-wrap');
+      if (!track || !wrap) return;
+
+      const SPEED = 0.6; // px pro Frame (~36px/s bei 60fps)
+      let x           = 0;
+      let halfWidth   = 0;
+      let isDragging  = false;
+      let dragStartX  = 0;
+      let dragStartTX = 0;
+      let paused      = false;
+
+      function init() {
+        halfWidth = track.scrollWidth / 2;
+        requestAnimationFrame(loop);
+      }
+
+      function loop() {
+        if (!isDragging && !paused) {
+          x -= SPEED;
+          if (Math.abs(x) >= halfWidth) x += halfWidth;
+          track.style.transform = `translateX(${x}px)`;
+        }
+        requestAnimationFrame(loop);
+      }
+
+      function normalize() {
+        if (x > 0)                   x -= halfWidth;
+        if (Math.abs(x) > halfWidth) x += halfWidth;
+      }
+
+      // Maus
+      wrap.addEventListener('mousedown', e => {
+        isDragging  = true;
+        dragStartX  = e.clientX;
+        dragStartTX = x;
+        track.classList.add('dragging');
+        e.preventDefault();
+      });
+      document.addEventListener('mousemove', e => {
+        if (!isDragging) return;
+        x = dragStartTX + (e.clientX - dragStartX);
+        normalize();
+        track.style.transform = `translateX(${x}px)`;
+      });
+      document.addEventListener('mouseup', () => {
+        if (!isDragging) return;
+        isDragging = false;
+        track.classList.remove('dragging');
+      });
+
+      // Touch
+      wrap.addEventListener('touchstart', e => {
+        isDragging  = true;
+        dragStartX  = e.touches[0].clientX;
+        dragStartTX = x;
+      }, { passive: true });
+      document.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        x = dragStartTX + (e.touches[0].clientX - dragStartX);
+        normalize();
+        track.style.transform = `translateX(${x}px)`;
+      }, { passive: true });
+      document.addEventListener('touchend', () => { isDragging = false; });
+
+      // Hover pausiert Auto-Scroll
+      wrap.addEventListener('mouseenter', () => { paused = true;  });
+      wrap.addEventListener('mouseleave', () => { paused = false; });
+
+      if (document.readyState === 'complete') { init(); }
+      else { window.addEventListener('load', init); }
+    })();
     //
     // BILDER HINZUFÜGEN:
     // Füge pro Kategorie Bildpfade in das `gallery`-Objekt ein.
