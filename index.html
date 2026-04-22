@@ -13,7 +13,7 @@
   <!-- Schriftart: Cormorant Garamond -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,300;1,400&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     /* ─── VARIABLEN ─────────────────────────────────────────── */
@@ -428,22 +428,119 @@
       line-height: 1.85;
     }
     .gt-intro p + p { margin-top: 18px; }
-    .gt-intro .btn { margin-top: 36px; }
+    .gt-intro .btn  { margin-top: 36px; }
+    .gt-intro em.gold {
+      color: var(--gold);
+      font-style: italic;
+    }
 
-    /* Bild- / Video-Platzhalter (visuelle Styles, Animation separat oben) */
+    /* Bild- / Video-Platzhalter → Polaroid-Stapel */
     .gt-media {
       position: relative;
       aspect-ratio: 4 / 5;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
       will-change: transform, opacity;
       transform: translateX(-80px);
       opacity: 0;
+      cursor: pointer;
     }
+
+    /* ── Polaroid-Stapel ── */
+    .polaroid-stack {
+      position: relative;
+      width: 75%;
+      aspect-ratio: 3 / 4;
+    }
+
+    .polaroid {
+      position: absolute;
+      inset: 0;
+      background: #f5f0e8;
+      padding: 10px 10px 36px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+      transform-origin: center 60%;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.45s ease;
+      overflow: hidden;
+    }
+
+    /* Gestaffelte Basis-Rotationen = "unordentlicher Stapel" */
+    .polaroid:nth-child(1) { transform: rotate(-7deg)  translateY(4px);  z-index: 1; }
+    .polaroid:nth-child(2) { transform: rotate(5deg)   translateY(2px);  z-index: 2; }
+    .polaroid:nth-child(3) { transform: rotate(-3deg)  translateY(-2px); z-index: 3; }
+    .polaroid:nth-child(4) { transform: rotate(8deg)   translateY(6px);  z-index: 2; }
+    .polaroid:nth-child(5) { transform: rotate(-1deg)  translateY(0px);  z-index: 4; }
+
+    /* Hover: auffächern */
+    .polaroid-stack:hover .polaroid:nth-child(1) { transform: rotate(-22deg) translate(-30px, 10px);  box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
+    .polaroid-stack:hover .polaroid:nth-child(2) { transform: rotate(-10deg) translate(-14px, -4px); box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
+    .polaroid-stack:hover .polaroid:nth-child(3) { transform: rotate(0deg)   translate(0px, -10px);  box-shadow: 0 14px 40px rgba(0,0,0,0.5); }
+    .polaroid-stack:hover .polaroid:nth-child(4) { transform: rotate(10deg)  translate(14px, -4px);  box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
+    .polaroid-stack:hover .polaroid:nth-child(5) { transform: rotate(22deg)  translate(30px, 10px);  box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
+
+    .polaroid-img {
+      width: 100%;
+      height: 85%;
+      object-fit: cover;
+      display: block;
+      background: var(--surface-2);
+    }
+
+    /* Platzhalter-Fläche wenn noch kein Bild */
+    .polaroid-ph {
+      width: 100%;
+      height: 85%;
+      background: var(--surface-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .polaroid-ph::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg, transparent, transparent 18px,
+        rgba(201,160,66,0.04) 18px, rgba(201,160,66,0.04) 19px
+      );
+    }
+    .polaroid-ph-icon { font-size: 2rem; opacity: 0.1; position: relative; z-index: 1; }
+
+    /* Beschriftung unten (Polaroid-Style) */
+    .polaroid-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 15%;
+      font-family: 'Caveat', cursive, var(--font-body);
+      font-size: 0.85rem;
+      color: #3a3530;
+      letter-spacing: 0.05em;
+      padding: 4px 6px 0;
+      text-align: center;
+    }
+
+    /* Galerie-Hint */
+    .polaroid-stack::after {
+      content: 'Galerie öffnen →';
+      position: absolute;
+      bottom: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+    .polaroid-stack:hover::after { opacity: 1; }
     .gt-media::before {
       content: '';
       position: absolute;
@@ -452,47 +549,6 @@
         -45deg, transparent, transparent 32px,
         rgba(201,160,66,0.03) 32px, rgba(201,160,66,0.03) 33px
       );
-    }
-    .gt-media-inner {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      padding: 32px;
-    }
-    .gt-media-icon {
-      font-size: 3rem;
-      opacity: 0.18;
-      display: block;
-      margin-bottom: 16px;
-    }
-    .gt-media-label {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    /* Wenn ein echtes Bild/Video eingesetzt wird:
-       <img src="gt-atmosphaere.jpg" ...>
-       <video src="assets/video/gt-reel.mp4" autoplay muted loop playsinline>
-       → einfach das gt-media-inner ersetzen, aspect-ratio bleibt
-    */
-    .gt-media img,
-    .gt-media video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    /* Gold-Akzentlinie oben */
-    .gt-media::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
     }
 
     .gt-cards {
@@ -562,7 +618,7 @@
       align-items: center;
       gap: 7px;
       font-size: 0.82rem;
-      color: var(--muted);
+      color: var(--gold);
       letter-spacing: 0.04em;
     }
     .reviews-track-wrap {
@@ -795,6 +851,173 @@
       transition: opacity 0.3s;
     }
     .sort-card > img.loaded { opacity: 1; }
+
+    /* ─── GT FOTOWAND MODAL ──────────────────────────────────── */
+    #photowall-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2100;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      overflow-y: auto;
+    }
+    #photowall-modal.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .photowall-backdrop {
+      position: fixed;
+      inset: 0;
+      background: #0e0c09;
+      background-image:
+        repeating-linear-gradient(-45deg, transparent, transparent 40px,
+          rgba(201,160,66,0.015) 40px, rgba(201,160,66,0.015) 41px);
+    }
+    .photowall-inner {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 52px 32px 64px;
+    }
+    .photowall-header {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+    }
+    .photowall-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      font-style: italic;
+      color: var(--white);
+    }
+    .photowall-title em { color: var(--gold); font-style: normal; }
+    .photowall-close {
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--white);
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      flex-shrink: 0;
+    }
+    .photowall-close:hover { border-color: var(--gold); color: var(--gold); }
+    .photowall-close svg { width: 13px; height: 13px; }
+
+    /* Das Wand-Raster */
+    .photowall-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px 24px;
+      justify-content: center;
+      max-width: 960px;
+    }
+
+    /* Einzelnes Wandpolaroid */
+    .wall-polaroid {
+      background: #f5f0e8;
+      padding: 10px 10px 44px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+      width: 200px;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.35s ease;
+      cursor: default;
+    }
+    /* Einzel-Rotationen – Wandeffekt */
+    .wall-polaroid:nth-child(1)  { transform: rotate(-3.5deg); }
+    .wall-polaroid:nth-child(2)  { transform: rotate(2deg)   translateY(8px); }
+    .wall-polaroid:nth-child(3)  { transform: rotate(-1deg)  translateY(-6px); }
+    .wall-polaroid:nth-child(4)  { transform: rotate(4deg)   translateY(4px); }
+    .wall-polaroid:nth-child(5)  { transform: rotate(-2.5deg) translateY(10px); }
+
+    .wall-polaroid:hover {
+      transform: rotate(0deg) translateY(-8px) scale(1.04) !important;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 10;
+    }
+
+    /* Reißzwecke */
+    .wall-pin {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #e8c06a, #8b6914);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+    .wall-pin::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 6px;
+      background: rgba(0,0,0,0.3);
+      border-radius: 0 0 2px 2px;
+    }
+
+    .wall-polaroid-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      background: var(--surface-2);
+    }
+    .wall-polaroid-ph {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #d8d0c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .wall-polaroid-ph::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg, transparent, transparent 12px,
+        rgba(0,0,0,0.04) 12px, rgba(0,0,0,0.04) 13px
+      );
+    }
+    .wall-polaroid-ph-icon { font-size: 2rem; opacity: 0.2; }
+
+    .wall-polaroid-label {
+      text-align: center;
+      padding: 8px 4px 0;
+      font-family: 'Caveat', cursive;
+      font-size: 1rem;
+      color: #3a3530;
+      line-height: 1.3;
+    }
+
+    /* SUITS Wasserzeichen unten */
+    .photowall-brand {
+      margin-top: 48px;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(201,160,66,0.3);
+    }
 
     /* ─── GALERIE MODAL ─────────────────────────────────────── */
     #gallery-modal {
@@ -1321,33 +1544,50 @@
       <div class="gt-top">
 
         <!--
-          ═══════════════════════════════════════════════════
-          BILD / VIDEO EINSETZEN:
-          Option A – Foto:
-            Ersetze den gt-media-inner Block durch:
-            <img src="gt-atmosphaere.jpg" alt="Gentlemen's Time Atmosphäre">
-
-          Option B – Video (empfohlen für Atmosphäre):
-            <video src="assets/video/gt-reel.mp4" autoplay muted loop playsinline
-                   aria-label="Gentlemen's Time Stimmungsvideo"></video>
-          ═══════════════════════════════════════════════════
+          BILDER EINSETZEN: Ersetze je .polaroid-ph durch:
+          <img src="gt-foto-1.jpg" alt="Gentlemen's Time" class="polaroid-img">
+          5 Bilder empfohlen (eines pro Polaroid)
         -->
-        <div class="gt-media" aria-label="Bild-Platzhalter Gentlemen's Time" style="order: 1;">
-          <div class="gt-media-inner">
-            <span class="gt-media-icon" aria-hidden="true">🎩</span>
-            <span class="gt-media-label">Foto oder Video<br>hier einsetzen</span>
+        <div class="gt-media" id="gt-polaroid-trigger" style="order: 1;">
+          <div class="polaroid-stack">
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">🎩</span></div>
+              <div class="polaroid-label">Gentlemen's Time</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">🍺</span></div>
+              <div class="polaroid-label">Drinks on us</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">🤵</span></div>
+              <div class="polaroid-label">Der perfekte Look</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">🥂</span></div>
+              <div class="polaroid-label">Für euch da</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">✨</span></div>
+              <div class="polaroid-label">Euer Moment</div>
+            </div>
+
           </div>
         </div>
 
         <div class="gt-intro" style="order: 2;">
           <h2 class="section-title" id="gt-heading">
-            Gentlemen's<br><span class="gold">Time.</span>
+            Gentlemen's<br><span class="gold">Time</span>
           </h2>
           <p>
-            Der persönliche Beratungstermin für dich und deine Freunde – für den perfekten Anzug zur Hochzeit, zum Abiball oder ganz einfach so. Wir sorgen in entspannter Atmosphäre dafür, dass jeder von euch genau den Anzug bekommt, der ihn zu einem richtigen Gentleman macht.
+            Die Auszeit von Hochzeitsplanung, Abistress oder dem Alltag – einfach <em class="gold">mit deinen Jungs</em> den Vibe genießen und <em class="gold">den perfekten Anzug</em> finden. In entspannter Gentlemen's Club Atmosphäre sorgen wir dafür, dass jeder von euch den Anzug bekommt, der ihn zu einem <em class="gold">richtigen Gentleman</em> macht.
           </p>
           <p>
-            Kühle Biere, feine Snacks und Berater, die zuhören: Das ist Gentlemen's Time – Shopping als echte Quality Time unter Freunden. Der Store hat regulär geöffnet, aber eure Beratung gehört nur euch.
+            Kühles Bier, feine Snacks und kompetente Berater, die <em class="gold">nur für euch</em> da sind: Das ist eure <em class="gold">Gentlemen's Time</em> – beshoppt werden, während du mit deinen Freunden die Zeit genießt und mal wieder <em class="gold">nur im Moment</em> bist.
           </p>
           <a href="#kontakt" class="btn btn-gold" style="margin-top: 36px; display: inline-flex;">
             Jetzt unverbindlich anfragen
@@ -1642,7 +1882,7 @@
 
       <div class="section-label">Was wir führen</div>
       <h2 class="section-title" id="sort-heading" style="margin-bottom: 44px;">
-        Unser <span class="gold">Sortiment.</span>
+        Unser <span class="gold">Sortiment</span>
       </h2>
 
       <div class="sortiment-grid">
@@ -1726,7 +1966,7 @@
 
       <div class="section-label">Wo ihr uns findet</div>
       <h2 class="section-title" id="store-heading" style="margin-bottom: 44px;">
-        Unsere <span class="gold">Stores.</span>
+        Unsere <span class="gold">Stores</span>
       </h2>
 
       <div class="stores-grid">
@@ -1792,7 +2032,7 @@
         <div class="kontakt-left">
           <div class="section-label">Unverbindlich anfragen</div>
           <h2 class="section-title" id="kontakt-heading">
-            Schreibt<br>uns <span class="gold">an.</span>
+            Schreibt<br>uns <span class="gold">an</span>
           </h2>
           <p>
             Bucht eure Gentlemen's Time.
@@ -1890,6 +2130,66 @@
     </div>
   </section>
 
+
+  <!-- ═══════════════ GT FOTOWAND MODAL ══════════════════════ -->
+  <div id="photowall-modal" role="dialog" aria-modal="true" aria-label="Gentlemen's Time Fotowand">
+    <div class="photowall-backdrop" id="photowall-backdrop"></div>
+    <div class="photowall-inner">
+
+      <div class="photowall-header">
+        <div class="photowall-title">
+          Eure <em>Gentlemen's Time</em>
+        </div>
+        <button class="photowall-close" id="photowall-close" aria-label="Fotowand schließen">
+          <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <path d="M1 1l12 12M13 1L1 13"/>
+          </svg>
+        </button>
+      </div>
+
+      <!--
+        BILDER EINSETZEN: Ersetze .wall-polaroid-ph durch:
+        <img src="gt-01.jpg" alt="..." class="wall-polaroid-img">
+        Beliebig viele Polaroids möglich – einfach weitere .wall-polaroid Blöcke hinzufügen
+      -->
+      <div class="photowall-grid" id="photowall-grid">
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🎩</span></div>
+          <div class="wall-polaroid-label">Gentlemen's Time</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🍺</span></div>
+          <div class="wall-polaroid-label">Drinks on us</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🤵</span></div>
+          <div class="wall-polaroid-label">Der perfekte Look</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🥂</span></div>
+          <div class="wall-polaroid-label">Für euch da</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">✨</span></div>
+          <div class="wall-polaroid-label">Euer Moment</div>
+        </div>
+
+      </div>
+
+      <div class="photowall-brand">SUITS – modern menswear</div>
+
+    </div>
+  </div>
 
   <!-- ═══════════════════ GALERIE MODAL ══════════════════════ -->
   <div id="gallery-modal" role="dialog" aria-modal="true" aria-label="Produktgalerie">
@@ -2072,7 +2372,7 @@
     function checkStaggerCards(cards) {
       cards.forEach((card, i) => {
         const rect = card.getBoundingClientRect();
-        const triggerAt = window.innerHeight * 0.88;
+        const triggerAt = window.innerHeight * 1.05;
         if (rect.top < triggerAt) {
           // Einfahren: gestaffelt mit Verzögerung
           card.style.transition = `transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${i * 0.2}s, opacity 0.8s ease ${i * 0.2}s`;
@@ -2183,60 +2483,60 @@
         title: 'Anzüge',
         icon: '🤵',
         images: [
-          { src: 'galerie/anzuege-01.jpg', alt: 'Anzug 1' },
-          { src: 'galerie/anzuege-02.jpg', alt: 'Anzug 2' },
-          { src: 'galerie/anzuege-03.jpg', alt: 'Anzug 3' },
-          { src: 'galerie/anzuege-04.jpg', alt: 'Anzug 4' },
+          { src: 'anzuege-01.jpg', alt: 'Anzug 1' },
+          { src: 'anzuege-02.jpg', alt: 'Anzug 2' },
+          { src: 'anzuege-03.jpg', alt: 'Anzug 3' },
+          { src: 'anzuege-04.jpg', alt: 'Anzug 4' },
         ]
       },
       hemden: {
         title: 'Hemden',
         icon: '👔',
         images: [
-          { src: 'galerie/hemden-01.jpg', alt: 'Hemd 1' },
-          { src: 'galerie/hemden-02.jpg', alt: 'Hemd 2' },
-          { src: 'galerie/hemden-03.jpg', alt: 'Hemd 3' },
-          { src: 'galerie/hemden-04.jpg', alt: 'Hemd 4' },
+          { src: 'hemden-01.jpg', alt: 'Hemd 1' },
+          { src: 'hemden-02.jpg', alt: 'Hemd 2' },
+          { src: 'hemden-03.jpg', alt: 'Hemd 3' },
+          { src: 'hemden-04.jpg', alt: 'Hemd 4' },
         ]
       },
       schuhe: {
         title: 'Schuhe',
         icon: '👞',
         images: [
-          { src: 'galerie/schuhe-01.jpg', alt: 'Schuh 1' },
-          { src: 'galerie/schuhe-02.jpg', alt: 'Schuh 2' },
-          { src: 'galerie/schuhe-03.jpg', alt: 'Schuh 3' },
-          { src: 'galerie/schuhe-04.jpg', alt: 'Schuh 4' },
+          { src: 'schuhe-01.jpg', alt: 'Schuh 1' },
+          { src: 'schuhe-02.jpg', alt: 'Schuh 2' },
+          { src: 'schuhe-03.jpg', alt: 'Schuh 3' },
+          { src: 'schuhe-04.jpg', alt: 'Schuh 4' },
         ]
       },
       accessoires: {
         title: 'Accessoires',
         icon: '⌚',
         images: [
-          { src: 'galerie/accessoires-01.jpg', alt: 'Accessoire 1' },
-          { src: 'galerie/accessoires-02.jpg', alt: 'Accessoire 2' },
-          { src: 'galerie/accessoires-03.jpg', alt: 'Accessoire 3' },
-          { src: 'galerie/accessoires-04.jpg', alt: 'Accessoire 4' },
+          { src: 'accessoires-01.jpg', alt: 'Accessoire 1' },
+          { src: 'accessoires-02.jpg', alt: 'Accessoire 2' },
+          { src: 'accessoires-03.jpg', alt: 'Accessoire 3' },
+          { src: 'accessoires-04.jpg', alt: 'Accessoire 4' },
         ]
       },
       huete: {
         title: 'Hüte & Caps',
         icon: '🎩',
         images: [
-          { src: 'galerie/huete-01.jpg', alt: 'Hut 1' },
-          { src: 'galerie/huete-02.jpg', alt: 'Hut 2' },
-          { src: 'galerie/huete-03.jpg', alt: 'Hut 3' },
-          { src: 'galerie/huete-04.jpg', alt: 'Hut 4' },
+          { src: 'huete-01.jpg', alt: 'Hut 1' },
+          { src: 'huete-02.jpg', alt: 'Hut 2' },
+          { src: 'huete-03.jpg', alt: 'Hut 3' },
+          { src: 'huete-04.jpg', alt: 'Hut 4' },
         ]
       },
       casual: {
         title: '(Smart) Casual',
         icon: '🧥',
         images: [
-          { src: 'galerie/casual-01.jpg', alt: 'Casual 1' },
-          { src: 'galerie/casual-02.jpg', alt: 'Casual 2' },
-          { src: 'galerie/casual-03.jpg', alt: 'Casual 3' },
-          { src: 'galerie/casual-04.jpg', alt: 'Casual 4' },
+          { src: 'casual-01.jpg', alt: 'Casual 1' },
+          { src: 'casual-02.jpg', alt: 'Casual 2' },
+          { src: 'casual-03.jpg', alt: 'Casual 3' },
+          { src: 'casual-04.jpg', alt: 'Casual 4' },
         ]
       }
     };
@@ -2355,6 +2655,28 @@
       modal.classList.remove('open');
       document.body.style.overflow = '';
     }
+
+    // ── GT Fotowand ───────────────────────────────────
+    const photowallModal   = document.getElementById('photowall-modal');
+    const photowallClose   = document.getElementById('photowall-close');
+    const photowallBackdrop = document.getElementById('photowall-backdrop');
+
+    function openPhotowall() {
+      photowallModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePhotowall() {
+      photowallModal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    const gtTrigger = document.getElementById('gt-polaroid-trigger');
+    if (gtTrigger) gtTrigger.addEventListener('click', openPhotowall);
+    photowallClose.addEventListener('click', closePhotowall);
+    photowallBackdrop.addEventListener('click', closePhotowall);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && photowallModal.classList.contains('open')) closePhotowall();
+    });
 
     // Kacheln anklicken
     document.querySelectorAll('.sort-card').forEach(card => {
