@@ -1238,15 +1238,26 @@
       width: auto;
       object-fit: contain;
       flex-shrink: 0;
-      /* Alle Logos weiß auf dunklem Hintergrund */
-      filter: brightness(0) invert(1);
-      opacity: 0.75;
+      opacity: 0.8;
       transition: opacity 0.2s;
     }
     .brand-logo:hover { opacity: 1; }
-    /* Logos die bereits weiß auf schwarz sind → schwarzen Hintergrund entfernen */
-    .brand-logo.blend { mix-blend-mode: screen; filter: none; opacity: 0.8; }
-    .brand-logo.blend:hover { opacity: 1; }
+
+    /* Dunkles Logo auf hellem Hintergrund → invertieren + screen entfernt Hintergrund */
+    .brand-logo.light {
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+
+    /* Helles Logo auf dunklem Hintergrund → screen entfernt schwarzen Hintergrund */
+    .brand-logo.dark {
+      mix-blend-mode: screen;
+    }
+
+    /* Dunkles Logo auf schwarzem Hintergrund → weiß machen */
+    .brand-logo.make-white {
+      filter: brightness(0) invert(1);
+    }
 
     /* ─── STANDORTE ─────────────────────────────────────────── */
     #standorte { padding: var(--pad-section) 0; }
@@ -1638,7 +1649,7 @@
 
             <div class="polaroid">
               <div class="polaroid-ph"><span class="polaroid-ph-icon">🍺</span></div>
-              <div class="polaroid-label">Drinks on us</div>
+              <div class="polaroid-label">Outfits zum Verlieben</div>
             </div>
 
             <div class="polaroid">
@@ -1654,6 +1665,21 @@
             <div class="polaroid">
               <div class="polaroid-ph"><span class="polaroid-ph-icon">✨</span></div>
               <div class="polaroid-label">Euer Moment</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">👌</span></div>
+              <div class="polaroid-label">Den Fit gefunden</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">🤔</span></div>
+              <div class="polaroid-label">Sich einig werden</div>
+            </div>
+
+            <div class="polaroid">
+              <div class="polaroid-ph"><span class="polaroid-ph-icon">😂</span></div>
+              <div class="polaroid-label">Jokes mit den Jungs</div>
             </div>
 
           </div>
@@ -2048,22 +2074,22 @@
       <div class="brands-track" id="brands-track">
 
         <!-- Originale (7 Logos) -->
-        <img src="lindbergh.jpg"                                                         alt="Lindbergh"   class="brand-logo">
-        <img src="digel.jpg"   alt="Digel"       class="brand-logo">
-        <img src="strellson.jpg"                                               alt="Strellson"   class="brand-logo blend">
-        <img src="olymp.jpg"                                          alt="OLYMP"       class="brand-logo">
-        <img src="stetson.png"             alt="Stetson"     class="brand-logo">
-        <img src="matinique.png"                                                   alt="Matinique"   class="brand-logo blend">
-        <img src="lindenmann.png"           alt="Lindenmann"  class="brand-logo blend">
+        <img src="lindbergh.jpg"   alt="Lindbergh"   class="brand-logo light">
+        <img src="digel.jpg"       alt="Digel"        class="brand-logo light">
+        <img src="strellson.jpg"   alt="Strellson"    class="brand-logo dark">
+        <img src="olymp.jpg"       alt="OLYMP"        class="brand-logo light">
+        <img src="stetson.png"     alt="Stetson"      class="brand-logo dark">
+        <img src="matinique.png"   alt="Matinique"    class="brand-logo dark">
+        <img src="lindenmann.png"  alt="Lindenmann"   class="brand-logo dark">
 
         <!-- Duplikat für nahtloses Loopen -->
-        <img src="lindbergh.jpg"                                                         alt="Lindbergh"   class="brand-logo">
-        <img src="digel.jpg"   alt="Digel"       class="brand-logo">
-        <img src="strellson.jpg"                                               alt="Strellson"   class="brand-logo blend">
-        <img src="olymp.jpg"                                          alt="OLYMP"       class="brand-logo">
-        <img src="stetson.png"             alt="Stetson"     class="brand-logo">
-        <img src="matinique.png"                                                   alt="Matinique"   class="brand-logo blend">
-        <img src="lindenmann.png"           alt="Lindenmann"  class="brand-logo blend">
+        <img src="lindbergh.jpg"   alt="Lindbergh"   class="brand-logo light">
+        <img src="digel.jpg"       alt="Digel"        class="brand-logo light">
+        <img src="strellson.jpg"   alt="Strellson"    class="brand-logo dark">
+        <img src="olymp.jpg"       alt="OLYMP"        class="brand-logo light">
+        <img src="stetson.png"     alt="Stetson"      class="brand-logo dark">
+        <img src="matinique.png"   alt="Matinique"    class="brand-logo dark">
+        <img src="lindenmann.png"  alt="Lindenmann"   class="brand-logo dark">
 
       </div>
     </div>
@@ -2272,7 +2298,7 @@
         <div class="wall-polaroid">
           <div class="wall-pin"></div>
           <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🍺</span></div>
-          <div class="wall-polaroid-label">Drinks on us</div>
+          <div class="wall-polaroid-label">Outfits zum Verlieben</div>
         </div>
 
         <div class="wall-polaroid">
@@ -2291,6 +2317,24 @@
           <div class="wall-pin"></div>
           <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">✨</span></div>
           <div class="wall-polaroid-label">Euer Moment</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">👌</span></div>
+          <div class="wall-polaroid-label">Den Fit gefunden</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">🤔</span></div>
+          <div class="wall-polaroid-label">Sich einig werden</div>
+        </div>
+
+        <div class="wall-polaroid">
+          <div class="wall-pin"></div>
+          <div class="wall-polaroid-ph"><span class="wall-polaroid-ph-icon">😂</span></div>
+          <div class="wall-polaroid-label">Jokes mit den Jungs</div>
         </div>
 
       </div>
@@ -2420,7 +2464,20 @@
         if (entry.isIntersecting) {
           const id = entry.target.id;
           navAnchors.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+            const isActive = a.getAttribute('href') === `#${id}`;
+            a.classList.toggle('active', isActive);
+
+            // Mobile Nav: aktiven Reiter ins Sichtfeld scrollen
+            if (isActive && a.closest('.nav-mobile')) {
+              const nav = a.closest('.nav-mobile');
+              const itemLeft   = a.offsetLeft;
+              const itemWidth  = a.offsetWidth;
+              const navWidth   = nav.offsetWidth;
+              nav.scrollTo({
+                left: itemLeft - (navWidth / 2) + (itemWidth / 2),
+                behavior: 'smooth'
+              });
+            }
           });
         }
       });
