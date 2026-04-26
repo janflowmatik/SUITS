@@ -484,11 +484,11 @@
     }
 
     /* Gestaffelte Basis-Rotationen = "unordentlicher Stapel" */
-    .polaroid:nth-child(1) { transform: rotate(-7deg)  translateY(4px);  z-index: 1; }
-    .polaroid:nth-child(2) { transform: rotate(5deg)   translateY(2px);  z-index: 2; }
+    .polaroid:nth-child(1) { transform: rotate(-7deg)  translateY(4px);  z-index: 5; }
+    .polaroid:nth-child(2) { transform: rotate(5deg)   translateY(2px);  z-index: 4; }
     .polaroid:nth-child(3) { transform: rotate(-3deg)  translateY(-2px); z-index: 3; }
     .polaroid:nth-child(4) { transform: rotate(8deg)   translateY(6px);  z-index: 2; }
-    .polaroid:nth-child(5) { transform: rotate(-1deg)  translateY(0px);  z-index: 4; }
+    .polaroid:nth-child(5) { transform: rotate(-1deg)  translateY(0px);  z-index: 1; }
 
     /* Hover: auffächern */
     .polaroid-stack:hover .polaroid:nth-child(1) { transform: rotate(-22deg) translate(-30px, 10px);  box-shadow: 0 10px 32px rgba(0,0,0,0.4); }
@@ -820,7 +820,7 @@
       background: linear-gradient(transparent, rgba(10,9,7,0.96) 55%);
       padding: 48px 24px 28px;
     }
-    /* "Galerie ansehen" hint on hover */
+    /* "Galerie ansehen" immer sichtbar */
     .sort-card-overlay::after {
       content: 'Galerie ansehen →';
       display: block;
@@ -831,13 +831,7 @@
       text-transform: uppercase;
       color: var(--gold);
       margin-bottom: 10px;
-      opacity: 0;
-      transform: translateY(4px);
-      transition: opacity 0.3s, transform 0.3s;
-    }
-    .sort-card:hover .sort-card-overlay::after {
       opacity: 1;
-      transform: translateY(0);
     }
     .sort-card-label {
       display: block;
@@ -2419,7 +2413,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p class="footer-copy">&copy; <span id="year"></span> SUITS modern menswear &middot; Alle Rechte vorbehalten</p>
+        <p class="footer-copy">&copy; <span id="year"></span> SUITS modern menswear &middot; Alle Rechte vorbehalten &middot; powered by <span style="color: var(--gold);">Flowmatik</span></p>
         <ul class="footer-legal">
           <li><a href="impressum.html">Impressum</a></li>
           <li><a href="datenschutz.html">Datenschutz</a></li>
