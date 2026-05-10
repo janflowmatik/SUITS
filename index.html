@@ -438,7 +438,6 @@
     /* ─── GENTLEMEN'S TIME ──────────────────────────────────── */
     #gentlemens-time {
       padding: var(--pad-section) 0;
-      overflow: hidden;
     }
 
     /* Zweispaltiges Intro: Bild links, Text rechts */
@@ -448,7 +447,7 @@
       gap: 60px;
       align-items: center;
       margin-bottom: 64px;
-      overflow: hidden; /* verhindert horizontalen Scrollbalken */
+      padding: 40px 0;
     }
 
     /* Startzustand: beide Elemente außerhalb */
@@ -488,6 +487,8 @@
       transform: translateX(-80px);
       opacity: 0;
       cursor: pointer;
+      padding: 32px;
+      box-sizing: border-box;
     }
 
     /* ── Polaroid-Stapel ── */
